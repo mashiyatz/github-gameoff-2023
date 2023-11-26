@@ -27,18 +27,18 @@ public class Character : MonoBehaviour
         currentStatus = STATUS.HEALTHY;
     }
 
-    void TakeDamage(Stat enemyAttack)
+    public void TakeDamage(Stat enemyAttack)
     {
         Buff(_hp, enemyAttack.value - _def.value);
         if (_hp.value <= 0) currentStatus = STATUS.DEAD;
     }
 
-    void Buff(Stat stat, int change)
+    public void Buff(Stat stat, int change)
     {
         stat.ChangeStat(change);
     }
 
-    void Attack(Character enemy)
+    public void Attack(Character enemy)
     {
         enemy.TakeDamage(_atk);
     }
