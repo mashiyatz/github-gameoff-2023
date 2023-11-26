@@ -4,19 +4,32 @@ using UnityEngine;
 
 public class NPCInteraction : MonoBehaviour
 {
+    public bool isPlayerInView;
+    public string[] dialogArray;
+    public DialogueBox dialogueBox;
+    public GMScript gameManager;
+
+    private void Start()
+    {
+        isPlayerInView = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            print("player in view");
-        }
+        if (collision.CompareTag("Player")) isPlayerInView = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player")) isPlayerInView = false;
+    }
+
+    private void OnMouseDown()
+    {
+        if (isPlayerInView)
         {
-            print("player out of view");
+            dialogueBox.PlayDialog(dialogArray);
+            gameManager.SetCurrentState(GMScript.STATE.INTERACT);
         }
     }
 }

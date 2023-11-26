@@ -22,6 +22,11 @@ public class GMScript : MonoBehaviour
         return currentState;
     }
 
+    public void SetCurrentState(STATE state)
+    {
+        currentState = state;
+    }
+
     public void TogglePauseMenu()
     {
         if (currentState != STATE.PAUSE)
