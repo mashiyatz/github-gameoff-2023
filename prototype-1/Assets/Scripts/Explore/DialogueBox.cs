@@ -10,6 +10,7 @@ public class DialogueBox : MonoBehaviour
     public string[] sourceText;
     public GMScript gameManager;
     private Image background;
+    public Image tail;
 
     [SerializeField]
     private float timeBetweenChars;
@@ -18,17 +19,24 @@ public class DialogueBox : MonoBehaviour
     {
         background = GetComponent<Image>();
         background.enabled = false;
+        tail.enabled = false;
     }
 
-    public void PlayDialog(string[] dialogArray)
+    public void PlayDialog(string[] dialogArray, Transform other)
     {
         if (!background.enabled) background.enabled = true;
+        if (!tail.enabled) tail.enabled = true;
         dialogBox.text = "";
-        // dialogBox.text = dialogArray[0];
-        StartCoroutine(TextVisible(dialogArray));
+
+        Vector3 otherPos = Camera.main.WorldToScreenPoint(other.position);
+        Vector3 dialogBoxPos = otherPos + 200 * Vector3.up;
+        transform.position = dialogBoxPos;
+
+        if (transform.CompareTag("Boss")) StartCoroutine(TextVisible(dialogArray, true));
+        else StartCoroutine(TextVisible(dialogArray));
     }
 
-    IEnumerator TextVisible(string[] dialogArray)
+    IEnumerator TextVisible(string[] dialogArray, bool doesBattleTrigger = false)
     {
         for (int i = 0; i < dialogArray.Length; i++)
         {
@@ -53,7 +61,10 @@ public class DialogueBox : MonoBehaviour
         }
 
         background.enabled = false;
-        gameManager.SetCurrentState(GMScript.STATE.MOVE);
+        tail.enabled = false;
+
+        if (doesBattleTrigger) gameManager.GetComponent<SceneManagement>().ChangeToBattleScene();
+        else gameManager.SetCurrentState(GMScript.STATE.MOVE);
     }
 
     IEnumerator WaitForPlayerInput()

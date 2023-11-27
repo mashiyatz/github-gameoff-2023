@@ -18,7 +18,7 @@ public class PlayerClickAndMove : MonoBehaviour
     private float longPressThreshold = 0.2f;
     private bool isMousePressed = false;
 
-    // Start is called before the first frame update
+
     void Start()
     {
        // player = this.GetComponent<Transform>().transform;
@@ -26,13 +26,14 @@ public class PlayerClickAndMove : MonoBehaviour
         //myCamera = Camera.main; // Assign the main camera to myCamera
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (gameManager.GetCurrentState() != GMScript.STATE.MOVE) return;
 
         if (Input.GetMouseButton(0) && canInteract)
         {
+            if (Input.mousePosition.y > 500) return;
+
             print("pressed");
             // if (GoToClick != null && canInteract && playerWalking)
             //     StopCoroutine(GoToClick); // Stop the coroutine if it's already running
@@ -43,6 +44,8 @@ public class PlayerClickAndMove : MonoBehaviour
         
         if (Input.GetMouseButtonUp(0) && canInteract)
         {
+            if (Input.mousePosition.y > 500) return;
+
             isMousePressed = false;
             float pressDuration = Time.time - mousePressStartTime;
 

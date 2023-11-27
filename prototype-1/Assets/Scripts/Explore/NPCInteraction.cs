@@ -9,6 +9,8 @@ public class NPCInteraction : MonoBehaviour
     public DialogueBox dialogueBox;
     public GMScript gameManager;
 
+    public bool isBattleTrigger;
+
     private void Start()
     {
         isPlayerInView = false;
@@ -32,7 +34,7 @@ public class NPCInteraction : MonoBehaviour
     {
         if (isPlayerInView && gameManager.GetCurrentState() != GMScript.STATE.INTERACT)
         {
-            dialogueBox.PlayDialog(dialogArray);
+            dialogueBox.PlayDialog(dialogArray, transform);
             //stops the weird looping issue
             gameManager.SetCurrentState(GMScript.STATE.INTERACT);
         }
