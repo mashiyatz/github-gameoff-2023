@@ -30,10 +30,10 @@ public class NPCInteraction : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (isPlayerInView)
+        if (isPlayerInView && gameManager.GetCurrentState() != GMScript.STATE.INTERACT)
         {
             dialogueBox.PlayDialog(dialogArray);
-            gameManager.player.GetComponent<PlayerClickAndMove>().canInteract = false;
+            //stops the weird looping issue
             gameManager.SetCurrentState(GMScript.STATE.INTERACT);
         }
     }

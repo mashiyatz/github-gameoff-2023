@@ -31,7 +31,7 @@ public class PlayerClickAndMove : MonoBehaviour
     {
         if (gameManager.GetCurrentState() != GMScript.STATE.MOVE) return;
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && canInteract)
         {
             print("pressed");
             // if (GoToClick != null && canInteract && playerWalking)
@@ -41,17 +41,20 @@ public class PlayerClickAndMove : MonoBehaviour
             mousePressStartTime = Time.time;
         }
         
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && canInteract)
         {
             isMousePressed = false;
             float pressDuration = Time.time - mousePressStartTime;
 
             if (pressDuration < longPressThreshold)
             {
-                if (GoToClick != null && !canInteract && !playerWalking)
+                if (GoToClick != null && playerWalking)
                     StopCoroutine(GoToClick); // Stop the coroutine if it's already running
 
-                GoToClick = StartCoroutine(GoToClickCoroutine(Input.mousePosition));
+                else if (canInteract && !playerWalking)
+                {
+                    GoToClick = StartCoroutine(GoToClickCoroutine(Input.mousePosition));
+                }
             }
             // else, it was a long press and we don't trigger the coroutine
         }

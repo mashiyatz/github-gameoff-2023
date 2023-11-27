@@ -10,7 +10,7 @@ public class GMScript : MonoBehaviour
     private STATE currentState = STATE.MOVE;
     private STATE lastState;
     
-    static float moveSpeed = 3.5f, moveAccuracy = 0.15f;
+    static float moveSpeed = 4.5f, moveAccuracy = 0.15f;
 
     public GameObject pauseScreen;
     public GameObject openMenuButton;
@@ -79,7 +79,7 @@ public class GMScript : MonoBehaviour
         if (myObject == FindObjectOfType<PlayerClickAndMove>().player)
         {
             FindObjectOfType<PlayerClickAndMove>().playerWalking = false;
-            FindObjectOfType<PlayerClickAndMove>().canInteract = true;
+            //FindObjectOfType<PlayerClickAndMove>().canInteract = true;
         }
 
         yield return null;
@@ -88,7 +88,15 @@ public class GMScript : MonoBehaviour
 
     void Update()
     {
-
+        //affects NPC interaction/movement
+        if (GetCurrentState() == STATE.INTERACT)
+        {
+            player.GetComponent<PlayerClickAndMove>().canInteract = false;
+        }
+        else
+        {
+            player.GetComponent<PlayerClickAndMove>().canInteract = true;
+        }
 
     }
 }

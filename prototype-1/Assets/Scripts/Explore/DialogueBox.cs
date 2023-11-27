@@ -48,7 +48,7 @@ public class DialogueBox : MonoBehaviour
                 if (visibleCount > 0 && (dialogBox.text[visibleCount - 1] == '.' || dialogBox.text[visibleCount - 1] == ',' || dialogBox.text[visibleCount - 1] == '?')) yield return new WaitForSeconds(timeBetweenChars * 5);
                 else yield return new WaitForSeconds(timeBetweenChars);
             }
-
+            
             yield return StartCoroutine(WaitForPlayerInput());
         }
 

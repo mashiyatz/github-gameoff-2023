@@ -2164,3 +2164,4 @@ MonoBehaviour:
   pauseScreen: {fileID: 1409803063}
   openMenuButton: {fileID: 471579272}
   closeMenuButton: {fileID: 1648764641}
+  player: {fileID: 446341619}
