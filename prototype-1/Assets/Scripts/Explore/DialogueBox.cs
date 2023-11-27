@@ -32,7 +32,7 @@ public class DialogueBox : MonoBehaviour
         Vector3 dialogBoxPos = otherPos + 200 * Vector3.up;
         transform.position = dialogBoxPos;
 
-        if (transform.CompareTag("Boss")) StartCoroutine(TextVisible(dialogArray, true));
+        if (other.CompareTag("Boss")) StartCoroutine(TextVisible(dialogArray, true));
         else StartCoroutine(TextVisible(dialogArray));
     }
 
@@ -63,7 +63,7 @@ public class DialogueBox : MonoBehaviour
         background.enabled = false;
         tail.enabled = false;
 
-        if (doesBattleTrigger) gameManager.GetComponent<SceneManagement>().ChangeToBattleScene();
+        if (doesBattleTrigger) { print("checking"); gameManager.GetComponent<SceneManagement>().ChangeToBattleScene(); }
         else gameManager.SetCurrentState(GMScript.STATE.MOVE);
     }
 
