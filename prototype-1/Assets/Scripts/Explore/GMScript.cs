@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//credit: adapted this walking tutorial for point-and-click, https://github.com/PawelDrozdowski/Point-and-Click-Game/tree/main
+
 public class GMScript : MonoBehaviour
 {
     public enum STATE { MOVE, PAUSE, INTERACT }
     private STATE currentState = STATE.MOVE;
     private STATE lastState;
+    
+    static float moveSpeed = 3.5f, moveAccuracy = 0.15f;
 
     public GameObject pauseScreen;
     public GameObject openMenuButton;
@@ -44,6 +48,39 @@ public class GMScript : MonoBehaviour
             closeMenuButton.SetActive(false);
             currentState = lastState;
         }
+    }
+    
+    public IEnumerator MoveToPoint(Transform myObject, Vector2 point)
+    {
+        // calculate position difference only for the x-axis
+        float xPositionDifference = point.x - myObject.position.x;
+
+        // flip object
+        if (myObject.GetComponentInChildren<SpriteRenderer>() && xPositionDifference != 0)
+            myObject.GetComponentInChildren<SpriteRenderer>().flipX = xPositionDifference > 0;
+
+        // stop when we are near the point
+        while (Mathf.Abs(xPositionDifference) > moveAccuracy)
+        {
+            // move only along the x-axis
+            myObject.Translate(new Vector3(moveSpeed * Mathf.Sign(xPositionDifference) * Time.deltaTime, 0, 0));
+
+            // recalculate position difference for the x-axis
+            xPositionDifference = point.x - myObject.position.x;
+            yield return null;
+        }
+
+        // snap to point
+        myObject.position = new Vector3(point.x, myObject.position.y, myObject.position.z);
+
+        // tell ClickManager that the player has arrived
+        if (myObject == FindObjectOfType<PlayerClickAndMove>().player)
+        {
+            FindObjectOfType<PlayerClickAndMove>().playerWalking = false;
+            FindObjectOfType<PlayerClickAndMove>().canInteract = true;
+        }
+
+        yield return null;
     }
 
 

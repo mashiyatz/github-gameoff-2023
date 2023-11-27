@@ -16,7 +16,12 @@ public class NPCInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) isPlayerInView = true;
+        if (collision.CompareTag("Player"))
+        {
+            isPlayerInView = true;
+            collision.GetComponent<PlayerClickAndMove>().canInteract = false;
+            print("NPC False");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
