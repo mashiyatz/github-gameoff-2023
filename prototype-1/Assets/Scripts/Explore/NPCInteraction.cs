@@ -19,7 +19,6 @@ public class NPCInteraction : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerInView = true;
-            collision.GetComponent<PlayerClickAndMove>().canInteract = false;
             print("NPC False");
         }
     }
@@ -34,6 +33,7 @@ public class NPCInteraction : MonoBehaviour
         if (isPlayerInView)
         {
             dialogueBox.PlayDialog(dialogArray);
+            gameManager.player.GetComponent<PlayerClickAndMove>().canInteract = false;
             gameManager.SetCurrentState(GMScript.STATE.INTERACT);
         }
     }

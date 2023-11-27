@@ -48,7 +48,7 @@ public class PlayerClickAndMove : MonoBehaviour
 
             if (pressDuration < longPressThreshold)
             {
-                if (GoToClick != null && canInteract && playerWalking)
+                if (GoToClick != null && !canInteract && !playerWalking)
                     StopCoroutine(GoToClick); // Stop the coroutine if it's already running
 
                 GoToClick = StartCoroutine(GoToClickCoroutine(Input.mousePosition));

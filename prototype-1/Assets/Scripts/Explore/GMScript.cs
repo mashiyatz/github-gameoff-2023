@@ -15,6 +15,8 @@ public class GMScript : MonoBehaviour
     public GameObject pauseScreen;
     public GameObject openMenuButton;
     public GameObject closeMenuButton;
+    
+    public GameObject player;
 
     void Start()
     {
