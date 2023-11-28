@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class DialogueBox : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogBox;
     public string[] sourceText;
@@ -29,14 +29,13 @@ public class DialogueBox : MonoBehaviour
         dialogBox.text = "";
 
         Vector3 otherPos = Camera.main.WorldToScreenPoint(other.position);
-        Vector3 dialogBoxPos = otherPos + 200 * Vector3.up;
+        Vector3 dialogBoxPos = otherPos + 100 * Vector3.up;
         transform.position = dialogBoxPos;
 
-        if (other.CompareTag("Boss")) StartCoroutine(TextVisible(dialogArray, true));
-        else StartCoroutine(TextVisible(dialogArray));
+        StartCoroutine(TextVisible(dialogArray, other));
     }
 
-    IEnumerator TextVisible(string[] dialogArray, bool doesBattleTrigger = false)
+    IEnumerator TextVisible(string[] dialogArray, Transform other)
     {
         for (int i = 0; i < dialogArray.Length; i++)
         {
@@ -63,8 +62,24 @@ public class DialogueBox : MonoBehaviour
         background.enabled = false;
         tail.enabled = false;
 
-        if (doesBattleTrigger) { print("checking"); gameManager.GetComponent<SceneManagement>().ChangeToBattleScene(); }
-        else gameManager.SetCurrentState(GMScript.STATE.MOVE);
+        // use switch cases instead?
+        // maybe use events so that interaction is controlled from NPCs
+        if (other.CompareTag("Boss")) gameManager.GetComponent<SceneManagement>().ChangeToBattleScene();
+        else if (other.CompareTag("Quest"))
+        {
+            var quest = other.gameObject.GetComponent<NPCQuest>();
+            if (!quest.soulObject.isAcquired)
+            {
+                quest.SetSoulObjectActive();
+                quest.QuestLogEntry = gameManager.CreateQuestLogEntry(quest.questLogHint[0]);
+            } else
+            {
+                quest.SetQuestComplete();
+            }
+        }
+        else if (other.CompareTag("SoulObject")) other.gameObject.GetComponent<SoulObject>().AcquireSoulObject();
+        
+        gameManager.SetCurrentState(GMScript.STATE.MOVE);
     }
 
     IEnumerator WaitForPlayerInput()

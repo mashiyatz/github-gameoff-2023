@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 //credit: adapted this walking tutorial for point-and-click, https://github.com/PawelDrozdowski/Point-and-Click-Game/tree/main
 
@@ -18,9 +19,19 @@ public class GMScript : MonoBehaviour
     
     public GameObject player;
 
+    public RectTransform questLog;
+    public GameObject questPrefab;
+
     void Start()
     {
         currentState = STATE.MOVE;
+    }
+
+    public GameObject CreateQuestLogEntry(string questHint)
+    {
+        var go = Instantiate(questPrefab, questLog);
+        go.GetComponent<TextMeshProUGUI>().text = questHint;
+        return go;
     }
 
     public STATE GetCurrentState()
@@ -28,9 +39,9 @@ public class GMScript : MonoBehaviour
         return currentState;
     }
 
-    public void SetCurrentState(STATE state)
+    public void SetCurrentState(STATE newState)
     {
-        currentState = state;
+        currentState = newState; 
     }
 
     public void TogglePauseMenu()

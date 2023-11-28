@@ -16,7 +16,7 @@ public class PlayerClickAndMove : MonoBehaviour
     
     private float mousePressStartTime = 0f;
     private float longPressThreshold = 0.2f;
-    private bool isMousePressed = false;
+    // private bool isMousePressed = false;
 
 
     void Start()
@@ -38,7 +38,7 @@ public class PlayerClickAndMove : MonoBehaviour
             // if (GoToClick != null && canInteract && playerWalking)
             //     StopCoroutine(GoToClick); // Stop the coroutine if it's already running
             // GoToClick = StartCoroutine(GoToClickCoroutine(Input.mousePosition));
-            isMousePressed = true;
+            // isMousePressed = true;
             mousePressStartTime = Time.time;
         }
         
@@ -46,7 +46,7 @@ public class PlayerClickAndMove : MonoBehaviour
         {
             if (Input.mousePosition.y > 500) return;
 
-            isMousePressed = false;
+            // isMousePressed = false;
             float pressDuration = Time.time - mousePressStartTime;
 
             if (pressDuration < longPressThreshold)
