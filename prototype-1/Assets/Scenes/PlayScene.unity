@@ -295,8 +295,7 @@ MonoBehaviour:
   - Get the doll for the kid.
   - Tell the kid you got the doll.
   isQuestCompleted: 0
-  questLogEntry: {fileID: 0}
-  soulObject: {fileID: 1537331133}
+  soulObject: {fileID: 1537331136}
 --- !u!1 &25689145
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,8 +760,7 @@ MonoBehaviour:
   - Find the locket for the widow.
   - Bring the locket to the widow.
   isQuestCompleted: 0
-  questLogEntry: {fileID: 0}
-  soulObject: {fileID: 1538164071}
+  soulObject: {fileID: 1538164074}
 --- !u!1001 &276184454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1589,8 +1587,7 @@ MonoBehaviour:
   - Find the knife for the guy.
   - Bring the knife to the guy.
   isQuestCompleted: 0
-  questLogEntry: {fileID: 0}
-  soulObject: {fileID: 578938537}
+  soulObject: {fileID: 1979367747}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,11 +1707,6 @@ Transform:
   m_Father: {fileID: 446341621}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &578938537 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 416637120786374665, guid: a4fbe453bf7c5a64e983d5e7e033e565, type: 3}
-  m_PrefabInstance: {fileID: 1979367743}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3121,21 +3113,33 @@ Transform:
   m_Father: {fileID: 1143689116}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1537331133 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 416637120786374665, guid: a4fbe453bf7c5a64e983d5e7e033e565, type: 3}
-  m_PrefabInstance: {fileID: 416637122302668724}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1537331134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 416637120786374666, guid: a4fbe453bf7c5a64e983d5e7e033e565, type: 3}
   m_PrefabInstance: {fileID: 416637122302668724}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1538164071 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 416637120786374665, guid: a4fbe453bf7c5a64e983d5e7e033e565, type: 3}
+--- !u!114 &1537331136 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 416637120786374772, guid: a4fbe453bf7c5a64e983d5e7e033e565, type: 3}
+  m_PrefabInstance: {fileID: 416637122302668724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b3e4e84eb9b704d95a4b244f581b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1538164074 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 416637120786374772, guid: a4fbe453bf7c5a64e983d5e7e033e565, type: 3}
   m_PrefabInstance: {fileID: 276184454}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b3e4e84eb9b704d95a4b244f581b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1568942102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3784,6 +3788,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 416637120786374666, guid: a4fbe453bf7c5a64e983d5e7e033e565, type: 3}
   m_PrefabInstance: {fileID: 1979367743}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1979367747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 416637120786374772, guid: a4fbe453bf7c5a64e983d5e7e033e565, type: 3}
+  m_PrefabInstance: {fileID: 1979367743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b3e4e84eb9b704d95a4b244f581b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2018919294
 GameObject:
   m_ObjectHideFlags: 0
