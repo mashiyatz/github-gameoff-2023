@@ -32,11 +32,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     transform.Translate(movementSpeed * Time.deltaTime * Vector2.left);
                 }
+            } else
+            {
+                float horizontalInput = Input.GetAxis("Horizontal");
+                transform.Translate(movementSpeed * Time.deltaTime * new Vector3(horizontalInput, 0, 0));
             }
         }
-
-
-/*        float horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(movementSpeed * Time.deltaTime * new Vector3(horizontalInput, 0, 0));*/
     }
 }
