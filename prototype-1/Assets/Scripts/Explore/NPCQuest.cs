@@ -11,7 +11,10 @@ public class NPCQuest : MonoBehaviour
     public bool isSoulConsumed = false;
     public bool isDecisionMade = false;
     public GameObject QuestLogEntry { get; set; }
+
     public SoulObject soulObject;
+    public GameObject soulObjectPlace;
+
     public GameObject decisionPanel;
     public HeartMonitor heart;
 
@@ -25,6 +28,9 @@ public class NPCQuest : MonoBehaviour
     public void SetSoulObjectActive()
     {
         soulObject.gameObject.SetActive(true);
+
+        soulObjectPlace.GetComponent<SoulObject>().enabled = true;
+        soulObjectPlace.GetComponent<InteractionDialogue>().enabled = true;
     }
 
 /*    public void SetQuestLogEntry(GameObject questLogEntryObject)
