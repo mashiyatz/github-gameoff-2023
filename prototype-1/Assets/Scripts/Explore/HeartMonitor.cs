@@ -8,8 +8,6 @@ public class HeartMonitor : MonoBehaviour
     public Image goodHeart;
     public Image evilHeart;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +17,16 @@ public class HeartMonitor : MonoBehaviour
 
     public void AddFill(bool isSoulConsumed)
     {
-        if (isSoulConsumed) StartCoroutine(ChangeFill(evilHeart));
-        else StartCoroutine(ChangeFill(goodHeart));
+        StartCoroutine(ChangeFill(isSoulConsumed));
     } 
 
-    public float FillRatio()
+    public Image GetHeart(bool isSoulConsumed)
+    {
+        if (isSoulConsumed) return evilHeart;
+        else return goodHeart;
+    }
+
+/*    public float FillRatio()
     {
         // print(goodHeart.fillAmount / evilHeart.fillAmount);
         return goodHeart.fillAmount / evilHeart.fillAmount;
@@ -31,28 +34,27 @@ public class HeartMonitor : MonoBehaviour
 
     public float NormalizedFillRatio()
     {
-        return ((FillRatio() - 0.4f) / 2.1f);
-    }
+        return (FillRatio() - 0.4f/2.1f) / 2.1f;
+    }*/
 
-    IEnumerator ChangeFill(Image ventricle)
+    IEnumerator ChangeFill(bool isSoulConsumed)
     {
         float startTime = Time.time;
+        float startAngle = transform.eulerAngles.z;
+        float finalAngle;
+        Image ventricle = GetHeart(isSoulConsumed);
         float startFillAmount = ventricle.fillAmount;
-        float duration = 3f;
+        float duration = 2f;
+
+        if (isSoulConsumed) finalAngle = transform.eulerAngles.z - 15f; 
+        else finalAngle = transform.eulerAngles.z + 15f;
 
         while (Time.time - startTime < duration)
         {
             ventricle.fillAmount = Mathf.Lerp(startFillAmount, startFillAmount + 0.2f, ((Time.time - startTime) / duration));
-            float angle = Mathf.Lerp(30, -30, NormalizedFillRatio());
+            float angle = Mathf.LerpAngle(startAngle, finalAngle, ((Time.time - startTime) / duration));
             transform.rotation = Quaternion.Euler(0, 0, angle);
             yield return null;
         }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

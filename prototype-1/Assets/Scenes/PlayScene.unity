@@ -9480,8 +9480,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A sigh rumbles inside of you, and the object in your pocket begins to feel
-    warm between your fingers. You crave it.
+  m_text: You crave it.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
   m_sharedMaterial: {fileID: 8324283224796415102, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
