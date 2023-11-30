@@ -1,16 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
+[System.Serializable]
+public class Dialogue
+{
+    public List<string> stringList;
+}
+
+[System.Serializable]
+public class DialogueList
+{
+    public List<Dialogue> dialogueList;
+
+    public List<Dialogue> Pop() {
+        try { 
+            dialogueList.RemoveAt(0);
+            return dialogueList;
+        }
+        catch { return dialogueList; }
+    }
+
+    public List<string> First()
+    {
+        return dialogueList[0].stringList;
+    }
+}
 
 public class InteractionDialogue : MonoBehaviour
 {
     public bool isPlayerInView;
-    public string[] dialogArray;
-    public string[] secondInteractionDialogue;
+    public DialogueList dialogueList;
+
     public DialogueManager dialogueBox;
     public GMScript gameManager;
 
     public bool hasAlreadyInteracted;
+    public bool allowMultipleInteractions;
     
 
     private void Start()
@@ -21,8 +48,7 @@ public class InteractionDialogue : MonoBehaviour
 
     public void UpdateDialogue()
     {
-        dialogArray = new string[secondInteractionDialogue.Length];
-        dialogArray = secondInteractionDialogue;
+        dialogueList.Pop();
         hasAlreadyInteracted = false;
     }
 
@@ -44,9 +70,9 @@ public class InteractionDialogue : MonoBehaviour
     {
         if (isPlayerInView && gameManager.GetCurrentState() != GMScript.STATE.INTERACT)
         {
-            if (!hasAlreadyInteracted)
+            if (!hasAlreadyInteracted || allowMultipleInteractions)
             {
-                dialogueBox.PlayDialog(dialogArray, transform);
+                dialogueBox.PlayDialog(dialogueList.First(), transform);
                 //stops the weird looping issue
                 gameManager.SetCurrentState(GMScript.STATE.INTERACT);
                 hasAlreadyInteracted = true;

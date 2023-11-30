@@ -7,36 +7,43 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float movementSpeed = 5.0f;
     private GMScript gameManager;
+
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
     
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GMScript>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
 
-        if (gameManager.GetCurrentState() != GMScript.STATE.MOVE) return;
+        if (gameManager.GetCurrentState() != GMScript.STATE.MOVE)
+        {
+            animator.SetBool("isWalking", false);
+            return;
+        }
 
         if (gameManager.GetCurrentState() == GMScript.STATE.MOVE)
         {
-            if (Input.GetMouseButton(0))
-            {
-                if (Input.mousePosition.y > 500) return;
+            float horizontalInput = Input.GetAxis("Horizontal");
 
-                // if (Input.mousePosition.x > Camera.main.WorldToScreenPoint(transform.position).x)
-                if (Input.mousePosition.x > 640)
-                {
-                    transform.Translate(movementSpeed * Time.deltaTime * Vector2.right);
-                } else if (Input.mousePosition.x < 640)
-                {
-                    transform.Translate(movementSpeed * Time.deltaTime * Vector2.left);
-                }
-            } else
+            if (Mathf.Abs(horizontalInput) > 0.05f)
             {
-                float horizontalInput = Input.GetAxis("Horizontal");
-                transform.Translate(movementSpeed * Time.deltaTime * new Vector3(horizontalInput, 0, 0));
+                animator.SetBool("isWalking", true);
+                if (horizontalInput > 0) spriteRenderer.flipX = false;
+                if (horizontalInput < 0) spriteRenderer.flipX = true;
             }
+            else
+            {
+                animator.SetBool("isWalking", false);
+            }
+
+            transform.Translate(movementSpeed * Time.deltaTime * new Vector3(horizontalInput, 0, 0));
+            
         }
     }
 }

@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
         tail.enabled = false;
     }
 
-    public void PlayDialog(string[] dialogArray, Transform other)
+    public void PlayDialog(List<string> dialogList, Transform other)
     {
         if (!background.enabled) background.enabled = true;
         if (!tail.enabled) tail.enabled = true;
@@ -32,14 +32,14 @@ public class DialogueManager : MonoBehaviour
         Vector3 dialogBoxPos = otherPos + 100 * Vector3.up;
         transform.position = dialogBoxPos;
 
-        StartCoroutine(TextVisible(dialogArray, other));
+        StartCoroutine(TextVisible(dialogList, other));
     }
 
-    IEnumerator TextVisible(string[] dialogArray, Transform other)
+    IEnumerator TextVisible(List<string> dialogList, Transform other)
     {
-        for (int i = 0; i < dialogArray.Length; i++)
+        for (int i = 0; i < dialogList.Count; i++)
         {
-            dialogBox.text = dialogArray[i];
+            dialogBox.text = dialogList[i];
             dialogBox.ForceMeshUpdate();
             int totalVisibleCharacters = dialogBox.textInfo.characterCount;
             int counter = 0;
