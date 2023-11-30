@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class DayMonitor : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public enum TIME { DAY, NOON, DUSK, NIGHT }
+    public static TIME currentTime;
+
     void Start()
     {
-        
+        currentTime = TIME.DAY;    
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void ShiftTime()
     {
-        
+        print(currentTime);
+        currentTime += 1;
     }
 }

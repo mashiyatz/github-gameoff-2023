@@ -50,6 +50,7 @@ public class NPCQuest : MonoBehaviour
 
         isQuestCompleted = true;
         npcDialogue.allowMultipleInteractions = true;
+        DayMonitor.ShiftTime();
         Destroy(QuestLogEntry);
     }
 
