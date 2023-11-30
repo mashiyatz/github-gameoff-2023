@@ -25,7 +25,7 @@ public class DialogueList
     public List<string> First()
     {
         return dialogueList[0].stringList;
-    }
+    } 
 }
 
 public class InteractionDialogue : MonoBehaviour
@@ -72,7 +72,7 @@ public class InteractionDialogue : MonoBehaviour
         {
             if (!hasAlreadyInteracted || allowMultipleInteractions)
             {
-                dialogueBox.PlayDialog(dialogueList.First(), transform);
+                dialogueBox.PlayDialog(dialogueList.First(), transform);                
                 //stops the weird looping issue
                 gameManager.SetCurrentState(GMScript.STATE.INTERACT);
                 hasAlreadyInteracted = true;

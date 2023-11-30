@@ -62,24 +62,32 @@ public class DialogueManager : MonoBehaviour
         background.enabled = false;
         tail.enabled = false;
 
-        // use switch cases instead?
-        // maybe use events so that interaction is controlled from NPCs
-        if (other.CompareTag("Boss")) gameManager.GetComponent<SceneManagement>().ChangeToBattleScene();
-        else if (other.CompareTag("Quest"))
+        InteractionResult(other);
+
+        print("Might be a problem later if people can move before decision is made.");
+        gameManager.SetCurrentState(GMScript.STATE.MOVE);
+    }
+
+    void InteractionResult(Transform conversationTarget)
+    {
+        if (conversationTarget.CompareTag("Boss")) gameManager.GetComponent<SceneManagement>().ChangeToBattleScene();
+        else if (conversationTarget.CompareTag("Quest"))
         {
-            var quest = other.gameObject.GetComponent<NPCQuest>();
+            var quest = conversationTarget.gameObject.GetComponent<NPCQuest>();
+
+            if (quest.isQuestCompleted) return;
+
             if (!quest.soulObject.isAcquired)
             {
                 quest.SetSoulObjectActive();
                 quest.QuestLogEntry = gameManager.CreateQuestLogEntry(quest.questLogHint[0]);
-            } else
+            }
+            else 
             {
-                quest.SetQuestComplete();
+                StartCoroutine(quest.DecideOnSoulCapture());
             }
         }
-        else if (other.CompareTag("SoulObject")) other.gameObject.GetComponent<SoulObject>().AcquireSoulObject();
-        
-        gameManager.SetCurrentState(GMScript.STATE.MOVE);
+        else if (conversationTarget.CompareTag("SoulObject")) conversationTarget.gameObject.GetComponent<SoulObject>().AcquireSoulObject();
     }
 
     IEnumerator WaitForPlayerInput()

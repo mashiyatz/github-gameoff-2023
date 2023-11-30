@@ -15,6 +15,11 @@ public class typewriterUI : MonoBehaviour
 	[SerializeField] string leadingChar = "";
 	[SerializeField] bool leadingCharBeforeDelay = false;
 
+	[SerializeField] bool isNextText = false;
+	[SerializeField] bool doReset = false;
+	[SerializeField] GameObject[] nextTextbox;
+
+
 	// Use this for initialization
 	void Start()
 	{
@@ -82,5 +87,24 @@ public class typewriterUI : MonoBehaviour
 		{
 			_tmpProText.text = _tmpProText.text.Substring(0, _tmpProText.text.Length - leadingChar.Length);
 		}
+
+		if (isNextText)
+        {
+			foreach (GameObject go in nextTextbox)
+            {
+				go.SetActive(true);
+            }
+        }
 	}
+
+    private void OnEnable()
+    {
+        if (doReset && _tmpProText != null)
+        {
+			writer = _tmpProText.text;
+			_tmpProText.text = "";
+
+			StartCoroutine("TypeWriterTMP");
+		}
+    }
 }
