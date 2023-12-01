@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Introduction.unity
     guid: 8d03f09ae6bfd5f43b50c9fe6b203bfe
+  - enabled: 1
+    path: Assets/Scenes/Demon Ending.unity
+    guid: 352a9f286446e2d4b980626e59a360cb
+  - enabled: 1
+    path: Assets/Scenes/Human Ending.unity
+    guid: 94414c4809dea9b4fb4071f7b6066015
   m_configObjects: {}
