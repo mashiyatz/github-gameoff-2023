@@ -22,6 +22,10 @@ public class Character : MonoBehaviour
     {
         _hp = new(HP);
         currentStatus = STATUS.HEALTHY;
+
+        goodDecisions[0] = MainManager.Instance.toyChoice;
+        goodDecisions[1] = MainManager.Instance.knifeChoice;
+        goodDecisions[2] = MainManager.Instance.locketChoice;
     }
 
     // general
@@ -66,20 +70,20 @@ public class Character : MonoBehaviour
 
     public void DollAttack()
     {
-        if (goodDecisions[0]) PlayerDefend(target);
-        else PlayerExplosion(target);
+        if (goodDecisions[0]) PlayerExplosion(target);
+        else PlayerDefend(target);
     }
 
     public void KnifeAttack()
     {
-        if (goodDecisions[1]) PlayerWeakAttack(target);
-        else PlayerExplosion(target);
+        if (goodDecisions[1]) PlayerExplosion(target);
+        else PlayerWeakAttack(target);
     }
 
     public void LocketAttack()
     {
-        if (goodDecisions[2]) PlayerPray();
-        else PlayerBlast(target);
+        if (goodDecisions[2]) PlayerBlast(target);
+        else PlayerPray();
     }
 
 
