@@ -14,7 +14,6 @@ public class DayMonitor : MonoBehaviour
 
     public static void ShiftTime()
     {
-        print(currentTime);
         currentTime += 1;
     }
 }

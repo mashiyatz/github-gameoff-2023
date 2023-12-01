@@ -9,23 +9,28 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogBox;
     public string[] sourceText;
     public GMScript gameManager;
-    private Image background;
-    public Image tail;
+    private Image textBubble;
+
+    [SerializeField]
+    private Sprite dialogueBubble;
+    [SerializeField]
+    private Sprite expositionBubble;
 
     [SerializeField]
     private float timeBetweenChars;
 
     void Start()
     {
-        background = GetComponent<Image>();
-        background.enabled = false;
-        tail.enabled = false;
+        textBubble = GetComponent<Image>();
+        textBubble.enabled = false;
     }
 
     public void PlayDialog(List<string> dialogList, Transform other)
     {
-        if (!background.enabled) background.enabled = true;
-        if (!tail.enabled) tail.enabled = true;
+        if (other.CompareTag("Quest")) textBubble.sprite = dialogueBubble;
+        else textBubble.sprite = expositionBubble;
+
+        if (!textBubble.enabled) textBubble.enabled = true;
         dialogBox.text = "";
 
         Vector3 otherPos = Camera.main.WorldToScreenPoint(other.position);
@@ -59,8 +64,7 @@ public class DialogueManager : MonoBehaviour
             yield return StartCoroutine(WaitForPlayerInput());
         }
 
-        background.enabled = false;
-        tail.enabled = false;
+        textBubble.enabled = false;
 
         InteractionResult(other);
 

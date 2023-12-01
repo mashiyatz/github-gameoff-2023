@@ -8,7 +8,7 @@ public class SoulObject : MonoBehaviour
 {
     public Image linkedUIObject;
     public NPCQuest linkedQuest;
-    public Sprite soulObjectSprite;
+    // public Sprite soulObjectSprite;
     public bool isAcquired = false;
 
     // private InteractionDialogue interaction;
@@ -22,7 +22,7 @@ public class SoulObject : MonoBehaviour
     public void AcquireSoulObject()
     {
         isAcquired = true;
-        linkedUIObject.sprite = soulObjectSprite;
+        linkedUIObject.color = Color.white;
         linkedQuest.QuestLogEntry.GetComponent<TextMeshProUGUI>().text = linkedQuest.questLogHint[1];
         linkedQuest.gameObject.GetComponent<InteractionDialogue>().UpdateDialogue();
         

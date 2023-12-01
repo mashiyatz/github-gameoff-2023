@@ -45,12 +45,10 @@ public class NPCQuest : MonoBehaviour
         if (isSoulConsumed)
         {
             npcDialogue.dialogueList.First().RemoveAt(0);
-            print(npcDialogue.dialogueList.First()[0]);
         }
         else
         {
             npcDialogue.dialogueList.First().RemoveAt(1);
-            print(npcDialogue.dialogueList.First()[0]);
         }
 
         isQuestCompleted = true;
