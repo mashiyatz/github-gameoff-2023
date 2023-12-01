@@ -343,7 +343,7 @@ MonoBehaviour:
   isSoulConsumed: 0
   isDecisionMade: 0
   soulObject: {fileID: 1537331136}
-  soulObjectPlace: {fileID: 1146227032}
+  soulObjectPlace: {fileID: 506948402}
   decisionPanel: {fileID: 711908562}
   heart: {fileID: 1329976873}
   dayMonitor: {fileID: 340186520}
