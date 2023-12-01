@@ -1274,7 +1274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ebonsorrow
+  m_text: Valuables
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e5df92bd00b25449be05bc01a65ef24, type: 2}
   m_sharedMaterial: {fileID: 8106478630623436667, guid: 2e5df92bd00b25449be05bc01a65ef24, type: 2}
