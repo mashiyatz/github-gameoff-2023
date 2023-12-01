@@ -27,9 +27,8 @@ public class NPCQuest : MonoBehaviour
 
     public void SetSoulObjectActive()
     {
-        soulObject.gameObject.SetActive(true);
-
         soulObjectPlace.GetComponent<SoulObject>().enabled = true;
+        soulObject = soulObjectPlace.GetComponent<SoulObject>();
         soulObjectPlace.GetComponent<InteractionDialogue>().enabled = true;
     }
 

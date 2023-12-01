@@ -12,7 +12,7 @@ public class SoulObject : MonoBehaviour
     public bool isAcquired = false;
 
     // private InteractionDialogue interaction;
-    private SoulObject soulObject;
+    // private SoulObject soulObject;
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class SoulObject : MonoBehaviour
         linkedQuest.QuestLogEntry.GetComponent<TextMeshProUGUI>().text = linkedQuest.questLogHint[1];
         linkedQuest.gameObject.GetComponent<InteractionDialogue>().UpdateDialogue();
         
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
         enabled = false;
     }
 }

@@ -21,10 +21,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.392
+    m_Value: 0
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.172
+    m_Value: 1
   rounded:
     m_OverrideState: 1
     m_Value: 0
@@ -40,10 +40,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
   m_Name: ChromaticAberration
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.62
+    m_Value: 0.3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: -0.25
+    m_Value: -0.1
   xMultiplier:
     m_OverrideState: 1
     m_Value: 1
@@ -104,13 +104,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.06303298}
+    m_Value: {x: 0.9982532, y: 0.938326, z: 1, w: -0.101717696}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.12977372}
+    m_Value: {x: 0.8509055, y: 0.971896, z: 1, w: 0.024965143}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -1}
+    m_Value: {x: 0.7936662, y: 0.89078164, z: 1, w: 0.005802473}
   shadowsStart:
     m_OverrideState: 1
     m_Value: 0
