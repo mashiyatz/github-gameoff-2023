@@ -31,6 +31,7 @@ public class NPCQuest : MonoBehaviour
         soulObjectPlace.GetComponent<SoulObject>().enabled = true;
         soulObject = soulObjectPlace.GetComponent<SoulObject>();
         soulObjectPlace.GetComponent<InteractionDialogue>().enabled = true;
+        soulObjectPlace.GetComponent<BoxCollider2D>().enabled = true;
     }
 
 /*    public void SetQuestLogEntry(GameObject questLogEntryObject)

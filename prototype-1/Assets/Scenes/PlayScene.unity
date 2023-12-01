@@ -6298,7 +6298,7 @@ GameObject:
   - component: {fileID: 506948405}
   m_Layer: 0
   m_Name: WindmillNoFans
-  m_TagString: Untagged
+  m_TagString: SoulObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6383,7 +6383,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506948402}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -6432,7 +6432,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506948402}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8b3e4e84eb9b704d95a4b244f581b46, type: 3}
   m_Name: 
@@ -10831,7 +10831,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886683723}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8b3e4e84eb9b704d95a4b244f581b46, type: 3}
   m_Name: 
@@ -10846,7 +10846,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886683723}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -24619,9 +24619,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1132693651}
     m_Modifications:
-    - target: {fileID: 5920947438733737601, guid: fd16aa4ca8d99424da7b49de6051373b, type: 3}
+    - target: {fileID: 5920947438733737600, guid: fd16aa4ca8d99424da7b49de6051373b, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920947438733737601, guid: fd16aa4ca8d99424da7b49de6051373b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5920947438733737601, guid: fd16aa4ca8d99424da7b49de6051373b, type: 3}
       propertyPath: linkedQuest
@@ -24631,6 +24635,10 @@ PrefabInstance:
       propertyPath: linkedUIObject
       value: 
       objectReference: {fileID: 293514708}
+    - target: {fileID: 5920947438733737602, guid: fd16aa4ca8d99424da7b49de6051373b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5920947438733737602, guid: fd16aa4ca8d99424da7b49de6051373b, type: 3}
       propertyPath: dialogueBox
       value: 
