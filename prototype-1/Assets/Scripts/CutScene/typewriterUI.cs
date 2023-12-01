@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class typewriterUI : MonoBehaviour
+public class TypewriterUI : MonoBehaviour
 {
 	Text _text;
 	TMP_Text _tmpProText;
@@ -18,7 +18,6 @@ public class typewriterUI : MonoBehaviour
 	[SerializeField] bool isNextText = false;
 	[SerializeField] bool doReset = false;
 	[SerializeField] GameObject[] nextTextbox;
-
 
 	// Use this for initialization
 	void Start()
@@ -106,5 +105,21 @@ public class typewriterUI : MonoBehaviour
 
 			StartCoroutine("TypeWriterTMP");
 		}
+    }
+
+    public void Reset()
+    {
+		writer = _tmpProText.text;
+		_tmpProText.text = "";
+
+		StartCoroutine("TypeWriterTMP");
+	}
+
+	public void Write(string phrase)
+    {
+		StopCoroutine("TypeWriterTMP");
+		writer = phrase;
+		_tmpProText.text = "";
+		StartCoroutine("TypeWriterTMP");
     }
 }

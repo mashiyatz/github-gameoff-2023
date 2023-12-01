@@ -4,43 +4,87 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public enum STATUS { HEALTHY, BLEEDING, FROZEN, DEAD }
+    public enum STATUS { HEALTHY, BLEEDING, DEAD }
     public STATUS currentStatus;
 
     [SerializeField]
     private int HP;
-    [SerializeField]
-    private int ATK;
-    [SerializeField]
-    private int DEF;
 
-    // current stats
+
     private Stat _hp;
-    private Stat _atk;
-    private Stat _def;
 
     void Start()
     {
         _hp = new(HP);
-        _atk = new(ATK);
-        _def = new(DEF);
         currentStatus = STATUS.HEALTHY;
     }
 
-    public void TakeDamage(Stat enemyAttack)
+    // general
+    public void ChangeHP(int change)
     {
-        Buff(_hp, enemyAttack.value - _def.value);
+        _hp.ChangeStat(change);
         if (_hp.value <= 0) currentStatus = STATUS.DEAD;
+        else if (_hp.value < HP / 3) currentStatus = STATUS.BLEEDING;
+        else currentStatus = STATUS.HEALTHY;
     }
 
-    public void Buff(Stat stat, int change)
+    public void DamageEnemy(Character target, int damage)
     {
-        stat.ChangeStat(change);
+        target.ChangeHP(damage);
     }
 
-    public void Attack(Character enemy)
+    // demon
+    public void DemonWeakAttack(Character target)
     {
-        enemy.TakeDamage(_atk);
+        DamageEnemy(target, 3);
+    }
+
+    public void DemonStrongAttack(Character target)
+    {
+        DamageEnemy(target, 8);
+    }
+
+    public void DemonCharge()
+    {
+        ChangeHP(5);
+    }
+
+    // player-good
+    public void PlayerWeakAttack(Character target)
+    {
+        DamageEnemy(target, 2);
+    }
+
+    public void PlayerDefend()
+    {
+        // don't take damage next turn?
+        // causes enemy to reflect damage?
+    }
+
+    public void PlayerPray()
+    {
+        ChangeHP(5);
+    }
+
+    // player-bad
+    public void PlayerStrongAttack(Character target)
+    {
+        DamageEnemy(target, 5);
+    }
+
+    public void PlayerExplosion(Character target)
+    {
+        DamageEnemy(target, 8);
+        DamageEnemy(this, 3);
+    }
+
+    public void PlayerBlast(Character target)
+    {
+        int damage = Random.Range(0, 2) * 16;
+        if (damage == 0) print("shame");
+        else print("yay");
+        DamageEnemy(target, damage);
+        // can't move next turn
     }
 
     void Update()
