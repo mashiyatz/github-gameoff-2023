@@ -45,14 +45,14 @@ public class InteractionDialogue : MonoBehaviour
     {
         isPlayerInView = false;
         hasAlreadyInteracted = false;
-        chatIndicator.SetActive(true);
+        if (transform.CompareTag("Quest")) chatIndicator.SetActive(true);
     }
 
     public void UpdateDialogue()
     {
         dialogueList.Pop();
-        hasAlreadyInteracted = false; 
-        chatIndicator.SetActive(true);
+        hasAlreadyInteracted = false;
+        if (transform.CompareTag("Quest")) chatIndicator.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -79,7 +79,7 @@ public class InteractionDialogue : MonoBehaviour
                 //stops the weird looping issue
                 gameManager.SetCurrentState(GMScript.STATE.INTERACT);
                 hasAlreadyInteracted = true;
-                chatIndicator.SetActive(false);
+                if (transform.CompareTag("Quest")) chatIndicator.SetActive(false);
             }
         }
     }
