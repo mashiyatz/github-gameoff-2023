@@ -42,12 +42,15 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TextVisible(List<string> dialogList, Transform other)
     {
+        
         for (int i = 0; i < dialogList.Count; i++)
         {
             dialogBox.text = dialogList[i];
             dialogBox.ForceMeshUpdate();
             int totalVisibleCharacters = dialogBox.textInfo.characterCount;
             int counter = 0;
+
+            var postingId = AkSoundEngine.PostEvent("Play_TextDialogue", gameObject);
 
             while (true)
             {
@@ -60,12 +63,13 @@ public class DialogueManager : MonoBehaviour
                 if (visibleCount > 0 && (dialogBox.text[visibleCount - 1] == '.' || dialogBox.text[visibleCount - 1] == ',' || dialogBox.text[visibleCount - 1] == '?')) yield return new WaitForSeconds(timeBetweenChars * 5);
                 else yield return new WaitForSeconds(timeBetweenChars);
             }
-            
+
+            AkSoundEngine.StopPlayingID(postingId);
+
             yield return StartCoroutine(WaitForPlayerInput());
         }
 
         textBubble.enabled = false;
-
         InteractionResult(other);
 
         print("Might be a problem later if people can move before decision is made.");

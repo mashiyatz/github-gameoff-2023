@@ -23,12 +23,15 @@ public class TypewriterUI : MonoBehaviour
 
     private void Awake()
     {
-		_text = GetComponent<Text>()!;
-		_tmpProText = GetComponent<TMP_Text>()!;
+/*		_text = GetComponent<Text>()!;
+		_tmpProText = GetComponent<TMP_Text>()!;*/
 	}
 
     void Start()
 	{
+		_text = GetComponent<Text>()!;
+		_tmpProText = GetComponent<TMP_Text>()!;
+
 		if (_text != null)
 		{
 			writer = _text.text;

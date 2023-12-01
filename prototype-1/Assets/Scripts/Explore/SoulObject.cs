@@ -25,7 +25,7 @@ public class SoulObject : MonoBehaviour
         linkedUIObject.color = Color.white;
         linkedQuest.QuestLogEntry.GetComponent<TextMeshProUGUI>().text = linkedQuest.questLogHint[1];
         linkedQuest.gameObject.GetComponent<InteractionDialogue>().UpdateDialogue();
-        
+        AkSoundEngine.PostEvent("Play_PickUpItem", gameObject);
         // gameObject.SetActive(false);
         enabled = false;
     }

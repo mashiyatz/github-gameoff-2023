@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0067d62ee7d8ceb47b20f4abc9109b92, type: 3}
+  m_Name: 593F3B00-8497-4BFE-8D16-A6449E8EB32E
+  m_EditorClassIdentifier: 
+  objectName: DayMix
+  id: 2347003305
+  guid: 593F3B00-8497-4BFE-8D16-A6449E8EB32E
+  WwiseStateGroupReference: {fileID: 11400000, guid: 3f36a2d3bdc9c3c48b2eb3ab61dc83bd, type: 2}

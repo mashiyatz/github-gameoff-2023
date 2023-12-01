@@ -5,6 +5,7 @@ using UnityEngine;
 public class DecisionBox : MonoBehaviour
 {
     public NPCQuest currentQuest;
+    public GameObject expositionBox;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +29,7 @@ public class DecisionBox : MonoBehaviour
 
     private void OnEnable()
     {
-        try { transform.GetChild(0).gameObject.SetActive(true); }
-        catch { }
+        expositionBox.SetActive(true);
     }
 
     public void MakeConsumeDecision(bool doesConsume)

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo>
+	<Project Name="GameJam_24112023" GUID="{5B9CF79F-6A26-4A9B-BEAF-D9315D762ACB}" Generator="2023.1.0.8367"/>
+	<CacheRoot>../../../../../../../Downloads/GameJam_WwiseProject_011223/GameJam_24112023/.cache</CacheRoot>
+	<Platforms>
+		<Platform Name="Mac" GUID="{15904E33-3A35-4BD6-A9D6-175C13D69E06}" BasePlatform="Mac" BasePlatformGUID="{9C6217D5-DD11-4795-87C1-6CE02853C540}" Path="../../../../../../../Downloads/GameJam_WwiseProject_011223/GameJam_24112023/GeneratedSoundBanks/Mac"/>
+		<Platform Name="Windows" GUID="{2C5FFEA8-ADE7-43A4-BEC8-DCA2D763C25D}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="../../../../../../../Downloads/GameJam_WwiseProject_011223/GameJam_24112023/GeneratedSoundBanks/Windows"/>
+	</Platforms>
+	<Languages>
+		<Language Name="English(US)" Id="684519430" GUID="{7F6DC685-94F6-4BC6-B2DA-0A4A71AA17D8}" Default="true" UseAsStandIn="true"/>
+	</Languages>
+	<FileHash>{C488895B-40F2-5323-662C-816A51C38DBC}</FileHash>
+</ProjectInfo>

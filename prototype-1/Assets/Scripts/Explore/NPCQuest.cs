@@ -17,6 +17,7 @@ public class NPCQuest : MonoBehaviour
 
     public GameObject decisionPanel;
     public HeartMonitor heart;
+    public DayMonitor dayMonitor;
 
     private InteractionDialogue npcDialogue;
 
@@ -53,7 +54,7 @@ public class NPCQuest : MonoBehaviour
 
         isQuestCompleted = true;
         npcDialogue.allowMultipleInteractions = true;
-        DayMonitor.ShiftTime();
+        dayMonitor.ShiftTime();
         Destroy(QuestLogEntry);
     }
 

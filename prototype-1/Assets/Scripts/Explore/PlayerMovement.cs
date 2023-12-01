@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+
+    [SerializeField]
+    private AK.Wwise.Event footsteps;
+    private bool isPlayingFootsteps;
     
     void Start()
     {
@@ -34,11 +38,18 @@ public class PlayerMovement : MonoBehaviour
             if (Mathf.Abs(horizontalInput) > 0.05f)
             {
                 animator.SetBool("isWalking", true);
+                if (!isPlayingFootsteps)
+                {
+                    footsteps.Post(gameObject);
+                    isPlayingFootsteps = true;
+                }
                 if (horizontalInput > 0) spriteRenderer.flipX = false;
                 if (horizontalInput < 0) spriteRenderer.flipX = true;
             }
             else
             {
+                footsteps.Stop(gameObject);
+                isPlayingFootsteps = false;
                 animator.SetBool("isWalking", false);
             }
 
