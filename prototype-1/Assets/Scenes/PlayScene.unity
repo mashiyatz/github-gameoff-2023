@@ -311,14 +311,14 @@ MonoBehaviour:
   dialogueList:
     dialogueList:
     - stringList:
-      - Ahhh
-      - Ohhh
+      - "I lost my toy\u2026 can you help me find it?"
+      - I was playing by the windmill and lost my toy
     - stringList:
-      - EEE
-      - MEE
+      - Oh thats my toy
+      - I missed it so much!
     - stringList:
-      - Yay
-      - Boo
+      - Yay! Ill go tell my parents!
+      - ...where did my toy go
   dialogueBox: {fileID: 732982386}
   gameManager: {fileID: 1978225503}
   hasAlreadyInteracted: 0
@@ -343,7 +343,7 @@ MonoBehaviour:
   isSoulConsumed: 0
   isDecisionMade: 0
   soulObject: {fileID: 1537331136}
-  soulObjectPlace: {fileID: 1146227032}
+  soulObjectPlace: {fileID: 506948402}
   decisionPanel: {fileID: 711908562}
   heart: {fileID: 1329976873}
   dayMonitor: {fileID: 340186520}
@@ -2707,14 +2707,14 @@ MonoBehaviour:
   dialogueList:
     dialogueList:
     - stringList:
-      - HEE
-      - II
+      - 'Please help me find my husband''s pendant '
+      - It's all I have left to remember him by
     - stringList:
-      - AOUEB
-      - OFUH
+      - Oh! my husbands pendant
+      - Just how I remembered him
     - stringList:
-      - Yay
-      - Boo
+      - Thank you kind soul
+      - .....
   dialogueBox: {fileID: 732982386}
   gameManager: {fileID: 1978225503}
   hasAlreadyInteracted: 0
@@ -6200,14 +6200,14 @@ MonoBehaviour:
   dialogueList:
     dialogueList:
     - stringList:
-      - Hello Hello Hello Hello Hello
-      - Testing, one, two, three
+      - My work isn't what it used it be ever since I lost my father's tools
+      - I swear I lost it somewhere in the old shed by the lake
     - stringList:
-      - C
-      - D
+      - Oh my father's carving knife
+      - Thanks for helping me find it!
     - stringList:
-      - Yay
-      - Boo
+      - This will be my finest work yet
+      - My work will never be the same
   dialogueBox: {fileID: 732982386}
   gameManager: {fileID: 1978225503}
   hasAlreadyInteracted: 0
@@ -6293,8 +6293,8 @@ GameObject:
   m_Component:
   - component: {fileID: 506948403}
   - component: {fileID: 506948404}
-  - component: {fileID: 506948407}
   - component: {fileID: 506948406}
+  - component: {fileID: 506948407}
   - component: {fileID: 506948405}
   m_Layer: 0
   m_Name: WindmillNoFans
@@ -6418,8 +6418,8 @@ MonoBehaviour:
   dialogueList:
     dialogueList:
     - stringList:
-      - This looks like a fun toy!
-      - 'I''ll take it. '
+      - Hm there seems to be something stuck in the gears
+      - Oh this is a nice toy
   dialogueBox: {fileID: 732982386}
   gameManager: {fileID: 1978225503}
   hasAlreadyInteracted: 0
@@ -10817,8 +10817,8 @@ MonoBehaviour:
   dialogueList:
     dialogueList:
     - stringList:
-      - This looks like a fun toy!
-      - 'I''ll take it. '
+      - This shed hasn't been open in ages
+      - Hm whats this nice knife doing here?
   dialogueBox: {fileID: 732982386}
   gameManager: {fileID: 1978225503}
   hasAlreadyInteracted: 0
@@ -13448,8 +13448,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1146227033}
   - component: {fileID: 1146227034}
-  - component: {fileID: 1146227037}
   - component: {fileID: 1146227036}
+  - component: {fileID: 1146227037}
   - component: {fileID: 1146227035}
   m_Layer: 0
   m_Name: Windmill
@@ -13558,7 +13558,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146227032}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3f7fde8c604fbb449e94dc946fcdedd, type: 3}
   m_Name: 
@@ -13581,7 +13581,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146227032}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8b3e4e84eb9b704d95a4b244f581b46, type: 3}
   m_Name: 
@@ -24639,6 +24639,14 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1978225503}
+    - target: {fileID: 5920947438733737602, guid: fd16aa4ca8d99424da7b49de6051373b, type: 3}
+      propertyPath: dialogueList.dialogueList.Array.data[0].stringList.Array.data[0]
+      value: There seems to be something shining here
+      objectReference: {fileID: 0}
+    - target: {fileID: 5920947438733737602, guid: fd16aa4ca8d99424da7b49de6051373b, type: 3}
+      propertyPath: dialogueList.dialogueList.Array.data[0].stringList.Array.data[1]
+      value: This must be the widow's pendant
+      objectReference: {fileID: 0}
     - target: {fileID: 5920947438733737629, guid: fd16aa4ca8d99424da7b49de6051373b, type: 3}
       propertyPath: m_Name
       value: Graveyard
