@@ -18,6 +18,7 @@ public class SetDemonEye : MonoBehaviour
         switch (phase)
         {
             case BattleManagerScript.PHASE.PLAYERSTART:
+                image.color = Color.white;
                 image.sprite = sprites[0];
                 break;
             case BattleManagerScript.PHASE.PLAYERACT:

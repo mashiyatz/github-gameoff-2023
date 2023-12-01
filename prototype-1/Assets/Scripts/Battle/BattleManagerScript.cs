@@ -15,6 +15,7 @@ public class BattleManagerScript : MonoBehaviour
     public Character player;
     public Character demon;
     public SetDemonEye demonEye;
+    public SetDemonBody demonBody;
 
     public TypewriterUI typewriter;
     public int turnCount;
@@ -23,19 +24,26 @@ public class BattleManagerScript : MonoBehaviour
 
     void Start()
     {
+        fightButton.SetActive(true);
         currentPhase = PHASE.PLAYERSTART;
-        turnCount = 0;
+        demonEye.SetEyeSprite(currentPhase);
+        turnCount = 1;
     }
 
 
     public void ChangeState(int index) {
 
+        if (player.currentStatus == Character.STATUS.DEAD || demon.currentStatus == Character.STATUS.DEAD)
+        {
+            StartCoroutine(SceneManagement.DelayToGameEnd());
+        }
         PHASE toPhase = (PHASE)index;
         switch (toPhase)
         {
             case PHASE.PLAYERSTART:
+                turnCount += 1;
                 fightButton.SetActive(true);
-                typewriter.Write("The Demon sleeps.");
+                typewriter.Write("The Demon slumbers.");
                 currentPhase = PHASE.PLAYERSTART;
                 break;
             case PHASE.PLAYERACT:
@@ -56,9 +64,11 @@ public class BattleManagerScript : MonoBehaviour
 
     IEnumerator RunEnemyPhase()
     {
-        yield return new WaitForSeconds(0.25f);
-        demon.DemonWeakAttack(player);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(3.2f);
+        if (turnCount % 4 == 0) demon.DemonStrongAttack(player);
+        else demon.DemonWeakAttack(player);
+        yield return new WaitForSeconds(3.2f);
+        demonBody.SetBodySprite(0);
         ChangeState((int)PHASE.PLAYERSTART);
     }
 

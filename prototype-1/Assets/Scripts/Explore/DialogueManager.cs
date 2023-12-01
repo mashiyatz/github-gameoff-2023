@@ -74,8 +74,7 @@ public class DialogueManager : MonoBehaviour
 
     void InteractionResult(Transform conversationTarget)
     {
-        if (conversationTarget.CompareTag("Boss")) gameManager.GetComponent<SceneManagement>().ChangeToBattleScene();
-        else if (conversationTarget.CompareTag("Quest"))
+        if (conversationTarget.CompareTag("Quest"))
         {
             var quest = conversationTarget.gameObject.GetComponent<NPCQuest>();
 

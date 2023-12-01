@@ -19,12 +19,16 @@ public class TypewriterUI : MonoBehaviour
 	[SerializeField] bool doReset = false;
 	[SerializeField] GameObject[] nextTextbox;
 
-	// Use this for initialization
-	void Start()
-	{
+    // Use this for initialization
+
+    private void Awake()
+    {
 		_text = GetComponent<Text>()!;
 		_tmpProText = GetComponent<TMP_Text>()!;
+	}
 
+    void Start()
+	{
 		if (_text != null)
 		{
 			writer = _text.text;
