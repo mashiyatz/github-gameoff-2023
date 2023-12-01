@@ -34,8 +34,24 @@ public class DecisionBox : MonoBehaviour
 
     public void MakeConsumeDecision(bool doesConsume)
     {
+
         currentQuest.isSoulConsumed = doesConsume;
         currentQuest.isDecisionMade = true;
+
+        if(currentQuest.itemNum == 0)
+        {
+            MainManager.Instance.toyChoice = doesConsume;
+        }
+        if(currentQuest.itemNum == 1)
+        {
+            MainManager.Instance.knifeChoice = doesConsume;
+        }
+        if(currentQuest.itemNum == 2)
+        {
+            MainManager.Instance.locketChoice = doesConsume;
+        }
+        
+
         gameObject.SetActive(false);
     }
 }

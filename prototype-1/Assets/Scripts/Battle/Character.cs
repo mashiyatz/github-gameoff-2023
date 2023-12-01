@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
     public STATUS currentStatus;
     public TypewriterUI typewriter;
     public Character target;
+    public AttackEffectManager attackManage;
 
     public bool[] goodDecisions;
 
@@ -87,6 +88,7 @@ public class Character : MonoBehaviour
     {
         typewriter.Write("You swing at the Demon.");
         DamageEnemy(target, 3);
+        attackManage.PlayLightAtt();
     }
 
     private void PlayerDefend(Character target)
@@ -94,12 +96,14 @@ public class Character : MonoBehaviour
         typewriter.Write("You protect yourself.");
         DamageEnemy(target, Random.Range(2, 4));
         ChangeHP(Random.Range(1, 3));
+        //attackManage.PlayHeavyAtt();
     }
 
     private void PlayerPray()
     {
         typewriter.Write("You tend to your wounds.");
         ChangeHP(5);
+        attackManage.PlayHealing();
     }
 
     // player-bad
@@ -107,6 +111,7 @@ public class Character : MonoBehaviour
     {
         typewriter.Write("You bludgeon the Demon.");
         DamageEnemy(target, 6);
+        attackManage.PlayLightAtt();
     }
 
     private void PlayerExplosion(Character target)
@@ -114,6 +119,7 @@ public class Character : MonoBehaviour
         typewriter.Write("You engulf the Demon in flames.");
         DamageEnemy(target, 8);
         DamageEnemy(this, 3);
+        attackManage.PlayHeavyAtt();
     }
 
     private void PlayerBlast(Character target)
@@ -122,6 +128,7 @@ public class Character : MonoBehaviour
         if (damage == 0) typewriter.Write("The Demon eludes you.");
         else typewriter.Write("The Demon cries out in pain.");
         DamageEnemy(target, damage);
+        //attackManage.PlayHeavyAtt();
     }
 
     void Update()

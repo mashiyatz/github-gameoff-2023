@@ -10,6 +10,7 @@ public class NPCQuest : MonoBehaviour
     public bool isQuestCompleted = false;
     public bool isSoulConsumed = false;
     public bool isDecisionMade = false;
+    public int itemNum;
     public GameObject QuestLogEntry { get; set; }
 
     public SoulObject soulObject;

@@ -8,13 +8,17 @@ public class PlayerInventory : MonoBehaviour
     public List<GameObject> soulObjectInventory = new();
 
 
-    void Start()
+    public void Awake()
     {
         
     }
 
- 
-    void Update()
+    public void Start()
+    {
+        
+    }
+
+    public void Update()
     {
         
     }

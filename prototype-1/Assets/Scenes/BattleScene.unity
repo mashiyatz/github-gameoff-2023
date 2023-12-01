@@ -153,8 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStatus: 0
-  typewriter: {fileID: 0}
-  target: {fileID: 0}
+  typewriter: {fileID: 1562523485}
+  target: {fileID: 193531699}
+  attackManage: {fileID: 567782805}
   goodDecisions: 000101
   HP: 25
 --- !u!4 &192503224
@@ -280,8 +281,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentStatus: 0
-  typewriter: {fileID: 0}
-  target: {fileID: 0}
+  typewriter: {fileID: 1562523485}
+  target: {fileID: 192503223}
+  attackManage: {fileID: 567782805}
   goodDecisions: 
   HP: 30
 --- !u!114 &193531700
@@ -337,7 +339,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 42, y: 0}
   m_SizeDelta: {x: 1100, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &373590942
@@ -472,6 +474,74 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!1001 &567782804
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7054617487959844056, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+      propertyPath: m_Name
+      value: AttackEffectManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054617487959844062, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054617487959844062, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054617487959844062, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054617487959844062, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.07721957
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054617487959844062, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054617487959844062, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054617487959844062, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054617487959844062, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054617487959844062, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054617487959844062, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054617487959844062, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+--- !u!114 &567782805 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7054617487959844057, guid: b0a8808dd9c500443bc21f26fe9fa918, type: 3}
+  m_PrefabInstance: {fileID: 567782804}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abfe0581855e5347b8a506d2e18e942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832308769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,8 +1224,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: The Demon slumbers.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
-  m_sharedMaterial: {fileID: 8324283224796415102, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
+  m_sharedMaterial: {fileID: 6390954191022912697, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
