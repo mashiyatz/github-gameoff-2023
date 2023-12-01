@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BlurMat
-  m_Shader: {fileID: -6465566751694194690, guid: 198473a8bfb44cf4185505cffaa392ed, type: 3}
+  m_Name: ForegroundFlowerBlur4
+  m_Shader: {fileID: -6465566751694194690, guid: 47b5de5d7d8d4284fab194e992e0ffc2, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -21,27 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_10b48bae736c416f9eb1f11294a19089_Out_0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_3937ea3dbe0648ad98482f4c068521f9_Out_0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_5246bbd405c14f669f41f7c873e8828b_Out_0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_683a66e466f9474b8199fafa451550e8_Out_0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_88d48982861f4827bbf4acd8fefd3707_Out_0:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: e223aac13499ce6449f9eb7ef8c5f0bc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -58,7 +38,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BlurAmount: 0.0172
-    - _FixAmount: 5
+    - _BlurAmount: 0.0446
+    - _FixAmount: 5.79
     m_Colors: []
   m_BuildTextureStacks: []
