@@ -7,7 +7,7 @@ public class SceneManagement : MonoBehaviour
 {
     public static void ChangeToPlayScene()
     {
-        SceneManager.LoadScene("PlayScene");
+        SceneManager.LoadScene("Introduction");
     }
 
     public static void ChangeToBattleScene()
