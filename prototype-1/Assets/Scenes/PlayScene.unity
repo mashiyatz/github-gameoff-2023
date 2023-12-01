@@ -21562,6 +21562,25 @@ SpriteRenderer:
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4618693559831024188, guid: 7aa3449faf0bb6a4aa4c90c8935508ca, type: 3}
+  m_PrefabInstance: {fileID: 4618693558387495021}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779335757}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b3e4e84eb9b704d95a4b244f581b46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linkedUIObject: {fileID: 293514708}
+  linkedQuest: {fileID: 222586766}
+  isAcquired: 0
+--- !u!114 &1779335762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4618693559831024191, guid: 7aa3449faf0bb6a4aa4c90c8935508ca, type: 3}
+  m_PrefabInstance: {fileID: 4618693558387495021}
   m_Modification:
     m_TransformParent: {fileID: 576392451}
     m_Modifications:
@@ -24869,6 +24888,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4618693559831024188, guid: 7aa3449faf0bb6a4aa4c90c8935508ca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618693559831024188, guid: 7aa3449faf0bb6a4aa4c90c8935508ca, type: 3}
+      propertyPath: linkedQuest
+      value: 
+      objectReference: {fileID: 222586766}
+    - target: {fileID: 4618693559831024188, guid: 7aa3449faf0bb6a4aa4c90c8935508ca, type: 3}
+      propertyPath: linkedUIObject
+      value: 
+      objectReference: {fileID: 106301222}
+    - target: {fileID: 4618693559831024191, guid: 7aa3449faf0bb6a4aa4c90c8935508ca, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 732982386}
+    - target: {fileID: 4618693559831024191, guid: 7aa3449faf0bb6a4aa4c90c8935508ca, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1978225503}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4227b56513d32144bbd693885ff149cd, type: 3}
 --- !u!4 &7867149962750288568 stripped

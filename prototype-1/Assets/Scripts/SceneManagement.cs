@@ -5,18 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour
 {
-    public void ChangeToPlayScene()
+    public static void ChangeToPlayScene()
     {
         SceneManager.LoadScene("PlayScene");
     }
 
-    public void ChangeToBattleScene()
+    public static void ChangeToBattleScene()
     {
         SceneManager.LoadScene("BattleScene");
     }
 
-    public void ChangeToMainMenuScene()
+    public static void ChangeToMainMenuScene()
     {
+        SceneManager.LoadScene("MainMenuScene");
+    }
+
+    public static IEnumerator DelayToGameEnd()
+    {
+        yield return new WaitForSeconds(3.0f);
         SceneManager.LoadScene("MainMenuScene");
     }
 }

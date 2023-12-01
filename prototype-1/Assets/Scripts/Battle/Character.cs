@@ -4,43 +4,124 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public enum STATUS { HEALTHY, BLEEDING, FROZEN, DEAD }
+    public enum STATUS { HEALTHY, BLEEDING, DEAD }
     public STATUS currentStatus;
+    public TypewriterUI typewriter;
+    public Character target;
+
+    public bool[] goodDecisions;
 
     [SerializeField]
     private int HP;
-    [SerializeField]
-    private int ATK;
-    [SerializeField]
-    private int DEF;
 
-    // current stats
+
     private Stat _hp;
-    private Stat _atk;
-    private Stat _def;
 
     void Start()
     {
         _hp = new(HP);
-        _atk = new(ATK);
-        _def = new(DEF);
         currentStatus = STATUS.HEALTHY;
     }
 
-    public void TakeDamage(Stat enemyAttack)
+    // general
+    public void ChangeHP(int change)
     {
-        Buff(_hp, enemyAttack.value - _def.value);
-        if (_hp.value <= 0) currentStatus = STATUS.DEAD;
+        _hp.ChangeStat(change);
+        if (_hp.value <= 0)
+        {
+            if (CompareTag("Player")) typewriter.Write("You have perished.");
+            else if (CompareTag("Boss")) typewriter.Write("The Demon is no more.");
+            currentStatus = STATUS.DEAD;
+        }
+        else if (_hp.value < HP / 3)
+        {
+            if (CompareTag("Player")) typewriter.Write("You are gravely wounded.");
+            else if (CompareTag("Boss")) typewriter.Write("The Demon shrieks in pain.");
+            currentStatus = STATUS.BLEEDING;
+        }
+        else currentStatus = STATUS.HEALTHY;
+        print($"HP: {_hp.value}");
     }
 
-    public void Buff(Stat stat, int change)
+    public void DamageEnemy(Character target, int damage)
     {
-        stat.ChangeStat(change);
+        target.ChangeHP(-damage);
     }
 
-    public void Attack(Character enemy)
+    // demon
+    public void DemonWeakAttack(Character target)
     {
-        enemy.TakeDamage(_atk);
+        typewriter.Write("The Demon strikes.");
+        GetComponent<SetDemonBody>().SetBodySprite(1);
+        DamageEnemy(target, 3);
+    }
+
+    public void DemonStrongAttack(Character target)
+    {
+        typewriter.Write("The Demon rips.");
+        GetComponent<SetDemonBody>().SetBodySprite(2);
+        DamageEnemy(target, 8);
+    }
+
+    public void DollAttack()
+    {
+        if (goodDecisions[0]) PlayerDefend(target);
+        else PlayerExplosion(target);
+    }
+
+    public void KnifeAttack()
+    {
+        if (goodDecisions[1]) PlayerWeakAttack(target);
+        else PlayerExplosion(target);
+    }
+
+    public void LocketAttack()
+    {
+        if (goodDecisions[2]) PlayerPray();
+        else PlayerBlast(target);
+    }
+
+
+    // player-good
+    private void PlayerWeakAttack(Character target)
+    {
+        typewriter.Write("You swing at the Demon.");
+        DamageEnemy(target, 3);
+    }
+
+    private void PlayerDefend(Character target)
+    {
+        typewriter.Write("You protect yourself.");
+        DamageEnemy(target, Random.Range(2, 4));
+        ChangeHP(Random.Range(1, 3));
+    }
+
+    private void PlayerPray()
+    {
+        typewriter.Write("You tend to your wounds.");
+        ChangeHP(5);
+    }
+
+    // player-bad
+    private void PlayerStrongAttack(Character target)
+    {
+        typewriter.Write("You bludgeon the Demon.");
+        DamageEnemy(target, 6);
+    }
+
+    private void PlayerExplosion(Character target)
+    {
+        typewriter.Write("You engulf the Demon in flames.");
+        DamageEnemy(target, 8);
+        DamageEnemy(this, 3);
+    }
+
+    private void PlayerBlast(Character target)
+    {
+        int damage = Random.Range(0, 2) * 10;
+        if (damage == 0) typewriter.Write("The Demon eludes you.");
+        else typewriter.Write("The Demon cries out in pain.");
+        DamageEnemy(target, damage);
     }
 
     void Update()
