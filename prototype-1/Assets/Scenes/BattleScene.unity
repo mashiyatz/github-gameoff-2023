@@ -1013,7 +1013,7 @@ MonoBehaviour:
   demon: {fileID: 193531699}
   demonEye: {fileID: 193531698}
   demonBody: {fileID: 193531700}
-  typewriter: {fileID: 0}
+  typewriter: {fileID: 1562523485}
   turnCount: 0
 --- !u!1 &1416648914
 GameObject:
@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1562523481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65e43581bc8ff2044bdc0cc3a4265943, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c06f64f0039718408814ad13a2fa157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeStart: 0

@@ -28,8 +28,13 @@ public class BattleManagerScript : MonoBehaviour
         currentPhase = PHASE.PLAYERSTART;
         demonEye.SetEyeSprite(currentPhase);
         turnCount = 1;
+        StartCoroutine(Wait());
     }
 
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2.0f);
+    }
 
     public void ChangeState(int index) {
 
