@@ -13,22 +13,25 @@ public class EndingCheck : MonoBehaviour
     public bool isEvil;
 
     private int evilCheck;
-    // Start is called before the first frame update
+
     void Start()
     {
-        if (MainManager.Instance.toyChoice) {
-            evilCheck += 1;
-        };
-        if(MainManager.Instance.knifeChoice) { evilCheck += 1; };
-        if(MainManager.Instance.locketChoice) { evilCheck += 1; };
-        
+        if (MainManager.Instance != null)
+        {
+            if (MainManager.Instance.toyChoice) { evilCheck += 1; };
+            if (MainManager.Instance.knifeChoice) { evilCheck += 1; };
+            if (MainManager.Instance.locketChoice) { evilCheck += 1; };
+        } else
+        {
+            evilCheck = Random.Range(0, 3);
+        }
+
         if(evilCheck > 1)
         {
             isEvil = true;
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (demon.currentStatus == Character.STATUS.DEAD)

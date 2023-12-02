@@ -7,24 +7,17 @@ public class DecisionBox : MonoBehaviour
     public NPCQuest currentQuest;
     public GameObject expositionBox;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnDisable()
     {
         foreach (Transform t in transform)
         {
             t.gameObject.SetActive(false);
         }
+    }
+
+    public void PlayButtonSound()
+    {
+        AkSoundEngine.PostEvent("Play_MouseClick", gameObject);
     }
 
     private void OnEnable()

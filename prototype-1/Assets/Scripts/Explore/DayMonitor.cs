@@ -25,7 +25,7 @@ public class DayMonitor : MonoBehaviour
     {
         currentTime += 1;
         AkSoundEngine.SetState("TimeStateNew", timeToAkState[currentTime]);
-        StartCoroutine(PlayMusic());
+        // StartCoroutine(PlayMusic());
     }
 
     public IEnumerator PlayMusic()

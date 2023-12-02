@@ -72,7 +72,7 @@ public class DialogueManager : MonoBehaviour
         textBubble.enabled = false;
         InteractionResult(other);
 
-        print("Might be a problem later if people can move before decision is made.");
+        // print("Might be a problem later if people can move before decision is made.");
         gameManager.SetCurrentState(GMScript.STATE.MOVE);
     }
 
