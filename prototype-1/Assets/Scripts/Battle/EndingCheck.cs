@@ -16,7 +16,7 @@ public class EndingCheck : MonoBehaviour
 
     void Start()
     {
-        if (MainManager.Instance != null)
+        if (MainManager.Instance)
         {
             if (MainManager.Instance.toyChoice) { evilCheck += 1; };
             if (MainManager.Instance.knifeChoice) { evilCheck += 1; };

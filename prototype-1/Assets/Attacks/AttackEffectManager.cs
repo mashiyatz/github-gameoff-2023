@@ -23,7 +23,7 @@ public class AttackEffectManager : MonoBehaviour
     public void PlayHealing()
     {
         // Instantiate the particle system game object
-        GameObject particleSystemObject = Instantiate(healing, transform.position, Quaternion.identity);
+        GameObject particleSystemObject = Instantiate(healing);
 
         // Access the ParticleSystem component (assuming it's part of the prefab)
         ParticleSystem particleSystem = particleSystemObject.GetComponent<ParticleSystem>();

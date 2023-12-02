@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MainManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     public static MainManager Instance;
 
     public bool knifeChoice;
@@ -13,7 +12,6 @@ public class MainManager : MonoBehaviour
 
     private void Awake()
     {
-
         if (Instance != null)
         {
             Destroy(gameObject);

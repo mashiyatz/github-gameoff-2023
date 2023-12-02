@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightAttack: {fileID: 8157711694885588890, guid: ec0ba8718b9aa8b44b2368b1051d37ac, type: 3}
   heavyAttack: {fileID: 3756745797266026524, guid: 8b46eb7616411b24d936e508a3a7bed9, type: 3}
-  healing: {fileID: 1698524006911528464, guid: 83e94ed2649b53f478cb3273996666a1, type: 3}
+  healing: {fileID: 1698524006911528464, guid: 1fa4ac4c8189afe4d9ea69c844c7f40d, type: 3}
   particleSystemPrefab: {fileID: 6235531350371971638, guid: 6beb286a4eddd1644802b400909b7a6c, type: 3}

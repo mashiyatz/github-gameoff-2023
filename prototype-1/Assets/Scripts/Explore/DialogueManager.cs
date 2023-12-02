@@ -27,8 +27,15 @@ public class DialogueManager : MonoBehaviour
 
     public void PlayDialog(List<string> dialogList, Transform other)
     {
-        if (other.CompareTag("Quest")) textBubble.sprite = dialogueBubble;
-        else textBubble.sprite = expositionBubble;
+        if (other.CompareTag("Quest"))
+        {
+            textBubble.sprite = dialogueBubble;
+            dialogBox.color = Color.white;
+        }
+        else { 
+            textBubble.sprite = expositionBubble;
+            dialogBox.color = Color.black;
+        }
 
         if (!textBubble.enabled) textBubble.enabled = true;
         dialogBox.text = "";

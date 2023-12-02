@@ -311,14 +311,14 @@ MonoBehaviour:
   dialogueList:
     dialogueList:
     - stringList:
-      - "I lost my toy\u2026 can you help me find it?"
-      - I was playing by the windmill and lost my toy
+      - "I lost my favorite doll\u2026can you help me find it?"
+      - I was playing by the windmill earlier.
     - stringList:
-      - Oh thats my toy
-      - I missed it so much!
+      - Oh, that's my toy! I missed it so much!
+      - It's the last thing I own from my parents.
     - stringList:
-      - Yay! Ill go tell my parents!
-      - ...where did my toy go
+      - Thank you! You're really nice!
+      - ...What? Where did my doll go?
   dialogueBox: {fileID: 732982386}
   gameManager: {fileID: 1978225503}
   hasAlreadyInteracted: 0
@@ -386,8 +386,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.29
+      value: 3.2900002
       objectReference: {fileID: 0}
     - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
       propertyPath: m_LocalPosition.y
@@ -403,15 +415,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2681,7 +2693,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1887288875
   m_SortingLayer: -1
-  m_SortingOrder: 1
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 6bc7831e1f7558a44865e42133283600, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2709,14 +2721,14 @@ MonoBehaviour:
   dialogueList:
     dialogueList:
     - stringList:
-      - 'Please help me find my husband''s pendant '
-      - I last saw it while I visited his grave
+      - I've lost my late husband's pendant.
+      - I know had it when I visited his grave...
     - stringList:
-      - Oh! my husbands pendant
-      - Just how I remembered him
+      - Oh! Is that what I think it is?
+      - I didn't think I would ever get to see his face again.
     - stringList:
-      - Thank you kind soul
-      - .....
+      - You are kind, stranger. Thank you.
+      - ...What have you done? Where is my husband?
   dialogueBox: {fileID: 732982386}
   gameManager: {fileID: 1978225503}
   hasAlreadyInteracted: 0
@@ -5327,7 +5339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ca0b2c2c3275b4ca87db3f4118ffdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 7
+  movementSpeed: 5.5
   footsteps:
     idInternal: 0
     valueGuidInternal: 
@@ -6251,14 +6263,14 @@ MonoBehaviour:
   dialogueList:
     dialogueList:
     - stringList:
-      - My work isn't what it used it be ever since I lost my father's tools
-      - I swear I lost it somewhere in the old shed by the lake
+      - My work ain't what it used it be ever since I lost my pa's knife.
+      - I lost it in the old shed by the lake. Can't see a thing in there...
     - stringList:
-      - Oh my father's carving knife
-      - Thanks for helping me find it!
+      - What in the world? Where did you find that!
+      - That knife was my father's pride and joy.
     - stringList:
-      - This will be my finest work yet
-      - My work will never be the same
+      - I will make you my finest work yet!
+      - What in the...where did it go?
   dialogueBox: {fileID: 732982386}
   gameManager: {fileID: 1978225503}
   hasAlreadyInteracted: 0
@@ -6470,8 +6482,8 @@ MonoBehaviour:
   dialogueList:
     dialogueList:
     - stringList:
-      - Hm there seems to be something stuck in the gears
-      - Oh this is a nice toy
+      - There seems to be something caught in the gears.
+      - You pull a mangled doll out. What was that doing there?
   dialogueBox: {fileID: 732982386}
   gameManager: {fileID: 1978225503}
   hasAlreadyInteracted: 0
@@ -9883,12 +9895,24 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4808539453979282110, guid: d213c87f25933e34d8f8340512610a91, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808539453979282110, guid: d213c87f25933e34d8f8340512610a91, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808539453979282110, guid: d213c87f25933e34d8f8340512610a91, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808539453979282110, guid: d213c87f25933e34d8f8340512610a91, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.46
+      value: -3.4599996
       objectReference: {fileID: 0}
     - target: {fileID: 4808539453979282110, guid: d213c87f25933e34d8f8340512610a91, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.72
+      value: -1.7199999
       objectReference: {fileID: 0}
     - target: {fileID: 4808539453979282110, guid: d213c87f25933e34d8f8340512610a91, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9900,15 +9924,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4808539453979282110, guid: d213c87f25933e34d8f8340512610a91, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4808539453979282110, guid: d213c87f25933e34d8f8340512610a91, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4808539453979282110, guid: d213c87f25933e34d8f8340512610a91, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4808539453979282110, guid: d213c87f25933e34d8f8340512610a91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10482,12 +10506,24 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.24
+      value: -3.2400007
       objectReference: {fileID: 0}
     - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.34
+      value: -0.34000024
       objectReference: {fileID: 0}
     - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10499,15 +10535,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2623287453272585351, guid: 8861a958edc97b04cb1c34b78f3af674, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11024,9 +11060,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You feel something stir inside of you.  The hunger inside you grows unbearable
-    as if it is bursting out.  You begin to feel light headed and ready yourself
-    for whats to come
+  m_text: You feel something stir inside of you. The hunger grows unbearable, as
+    if it is bursting out. You begin to feel lightheaded and ready yourself for what's
+    to come.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_sharedMaterial: {fileID: 6390954191022912697, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
@@ -11113,9 +11149,9 @@ GameObject:
   m_Component:
   - component: {fileID: 886683724}
   - component: {fileID: 886683725}
-  - component: {fileID: 886683728}
   - component: {fileID: 886683727}
   - component: {fileID: 886683726}
+  - component: {fileID: 886683728}
   m_Layer: 0
   m_Name: Shed
   m_TagString: SoulObject
@@ -11207,8 +11243,8 @@ MonoBehaviour:
   dialogueList:
     dialogueList:
     - stringList:
-      - This shed hasn't been open in ages
-      - Hm whats this nice knife doing here?
+      - The shed smells foul, but you can see the glint of a blade.
+      - You pull a knife out of something that may have once been alive.
   dialogueBox: {fileID: 732982386}
   gameManager: {fileID: 1978225503}
   hasAlreadyInteracted: 0
@@ -11253,7 +11289,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!1 &892622682
 GameObject:
@@ -13010,7 +13046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 0.8352941}
+  m_Color: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 0.8352941}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15438,7 +15474,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -15455,8 +15491,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15866,7 +15902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeStart: 0
-  timeBtwChars: 0.1
+  timeBtwChars: 0.05
   leadingChar: 
   leadingCharBeforeDelay: 0
   isNextText: 1
@@ -19793,8 +19829,20 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 143432361491382560, guid: 7ae08cf2d5d860c4cbaa356f45911b2c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 143432361491382560, guid: 7ae08cf2d5d860c4cbaa356f45911b2c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 143432361491382560, guid: 7ae08cf2d5d860c4cbaa356f45911b2c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 143432361491382560, guid: 7ae08cf2d5d860c4cbaa356f45911b2c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.66
+      value: -1.6600004
       objectReference: {fileID: 0}
     - target: {fileID: 143432361491382560, guid: 7ae08cf2d5d860c4cbaa356f45911b2c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19810,15 +19858,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 143432361491382560, guid: 7ae08cf2d5d860c4cbaa356f45911b2c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 143432361491382560, guid: 7ae08cf2d5d860c4cbaa356f45911b2c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 143432361491382560, guid: 7ae08cf2d5d860c4cbaa356f45911b2c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 143432361491382560, guid: 7ae08cf2d5d860c4cbaa356f45911b2c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -21445,7 +21493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeStart: 0
-  timeBtwChars: 0.1
+  timeBtwChars: 0.05
   leadingChar: 
   leadingCharBeforeDelay: 0
   isNextText: 1
@@ -22189,8 +22237,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1213654604986317821, guid: 110c1dd4207210b4aa4c444b7cc46363, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213654604986317821, guid: 110c1dd4207210b4aa4c444b7cc46363, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213654604986317821, guid: 110c1dd4207210b4aa4c444b7cc46363, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213654604986317821, guid: 110c1dd4207210b4aa4c444b7cc46363, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.92
+      value: -0.91999894
       objectReference: {fileID: 0}
     - target: {fileID: 1213654604986317821, guid: 110c1dd4207210b4aa4c444b7cc46363, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22206,15 +22266,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1213654604986317821, guid: 110c1dd4207210b4aa4c444b7cc46363, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1213654604986317821, guid: 110c1dd4207210b4aa4c444b7cc46363, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1213654604986317821, guid: 110c1dd4207210b4aa4c444b7cc46363, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1213654604986317821, guid: 110c1dd4207210b4aa4c444b7cc46363, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -24297,12 +24357,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 223909520040053425, guid: a099dd8d22b1eac49b95e8396ade3e1c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 223909520040053425, guid: a099dd8d22b1eac49b95e8396ade3e1c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.2342
+      value: 1.2342001
+      objectReference: {fileID: 0}
+    - target: {fileID: 223909520040053425, guid: a099dd8d22b1eac49b95e8396ade3e1c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 223909520040053425, guid: a099dd8d22b1eac49b95e8396ade3e1c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.36
+      value: 3.3600008
       objectReference: {fileID: 0}
     - target: {fileID: 223909520040053425, guid: a099dd8d22b1eac49b95e8396ade3e1c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -24318,15 +24386,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 223909520040053425, guid: a099dd8d22b1eac49b95e8396ade3e1c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 223909520040053425, guid: a099dd8d22b1eac49b95e8396ade3e1c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 223909520040053425, guid: a099dd8d22b1eac49b95e8396ade3e1c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 223909520040053425, guid: a099dd8d22b1eac49b95e8396ade3e1c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -25513,11 +25581,11 @@ PrefabInstance:
       objectReference: {fileID: 1978225503}
     - target: {fileID: 5920947438733737602, guid: fd16aa4ca8d99424da7b49de6051373b, type: 3}
       propertyPath: dialogueList.dialogueList.Array.data[0].stringList.Array.data[0]
-      value: There seems to be something shining here
+      value: Something shines brightly between the tombstones.
       objectReference: {fileID: 0}
     - target: {fileID: 5920947438733737602, guid: fd16aa4ca8d99424da7b49de6051373b, type: 3}
       propertyPath: dialogueList.dialogueList.Array.data[0].stringList.Array.data[1]
-      value: This must be the widow's pendant
+      value: You find a locket, with a bloody portrait of a man inside.
       objectReference: {fileID: 0}
     - target: {fileID: 5920947438733737629, guid: fd16aa4ca8d99424da7b49de6051373b, type: 3}
       propertyPath: m_Name

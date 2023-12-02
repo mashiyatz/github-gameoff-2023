@@ -22,13 +22,16 @@ public class Character : MonoBehaviour
     {
         _hp = new(HP);
         currentStatus = STATUS.HEALTHY;
+        goodDecisions = new bool[3];
 
-
-        if (MainManager.Instance != null)
+        if (CompareTag("Player"))
         {
-            goodDecisions[0] = MainManager.Instance.toyChoice;
-            goodDecisions[1] = MainManager.Instance.knifeChoice;
-            goodDecisions[2] = MainManager.Instance.locketChoice;
+            if (MainManager.Instance)
+            {
+                goodDecisions[0] = MainManager.Instance.toyChoice;
+                goodDecisions[1] = MainManager.Instance.knifeChoice;
+                goodDecisions[2] = MainManager.Instance.locketChoice;
+            }
         }
     }
 
