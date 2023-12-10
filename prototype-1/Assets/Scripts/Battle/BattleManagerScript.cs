@@ -36,6 +36,10 @@ public class BattleManagerScript : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
     }
 
+
+    // on click add start turn var, if turn +3, remove
+    // make item disappear on giving it away
+
     public void ChangeState(int index) {
         PHASE toPhase = (PHASE)index;
         switch (toPhase)
