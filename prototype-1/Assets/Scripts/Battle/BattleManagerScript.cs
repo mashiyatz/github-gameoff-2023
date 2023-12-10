@@ -37,11 +37,6 @@ public class BattleManagerScript : MonoBehaviour
     }
 
     public void ChangeState(int index) {
-
-        /*if (player.currentStatus == Character.STATUS.DEAD || demon.currentStatus == Character.STATUS.DEAD)
-        {
-            StartCoroutine(SceneManagement.DelayToGameEnd());
-        }*/
         PHASE toPhase = (PHASE)index;
         switch (toPhase)
         {
@@ -52,7 +47,7 @@ public class BattleManagerScript : MonoBehaviour
                 currentPhase = PHASE.PLAYERSTART;
                 break;
             case PHASE.PLAYERACT:
-                typewriter.Write("The Demon stirs.");
+                typewriter.Write("The Demon stirs."); // "Select an action"?
                 fightButton.SetActive(false);
                 inventory.SetActive(true);
                 currentPhase = PHASE.PLAYERACT;

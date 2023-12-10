@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
         dialogBox.text = "";
 
         Vector3 otherPos = Camera.main.WorldToScreenPoint(other.position);
-        Vector3 dialogBoxPos = otherPos + 100 * Vector3.up;
+        Vector3 dialogBoxPos = otherPos + 75 * Vector3.up;
         transform.position = dialogBoxPos;
 
         StartCoroutine(TextVisible(dialogList, other));

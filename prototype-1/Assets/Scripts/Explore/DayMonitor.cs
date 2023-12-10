@@ -9,6 +9,9 @@ public class DayMonitor : MonoBehaviour
 
     Dictionary<TIME, string> timeToAkState = new();
 
+    [SerializeField]
+    private Color[] skyColors;
+
     void Start()
     {
         timeToAkState.Add(TIME.DAY, "DayMix");
@@ -25,12 +28,24 @@ public class DayMonitor : MonoBehaviour
     {
         currentTime += 1;
         AkSoundEngine.SetState("TimeStateNew", timeToAkState[currentTime]);
-        // StartCoroutine(PlayMusic());
+        StartCoroutine(ChangeSkyColor(currentTime));
     }
 
     public IEnumerator PlayMusic()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(5);
         AkSoundEngine.PostEvent("Play_Music", gameObject);
     }
+
+    public IEnumerator ChangeSkyColor(TIME timeOfDay)
+    {
+        float startTime = Time.time;
+
+        while (Time.time - startTime < 5) {
+            Color newSkyColor = Color.Lerp(skyColors[(int)timeOfDay - 1], skyColors[(int)timeOfDay], Time.time - startTime / 5);
+            Camera.main.backgroundColor = newSkyColor;
+            yield return null;
+        } 
+    }
+         
 }

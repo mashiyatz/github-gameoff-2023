@@ -83,7 +83,7 @@ public class Character : MonoBehaviour
 
     public void KnifeAttack()
     {
-        if (goodDecisions[1]) PlayerExplosion(target);
+        if (goodDecisions[1]) PlayerStrongAttack(target);
         else PlayerWeakAttack(target);
     }
 

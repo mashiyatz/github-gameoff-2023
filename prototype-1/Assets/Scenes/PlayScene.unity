@@ -337,8 +337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLogHint:
-  - Get the doll for the kid.
-  - Tell the kid you got the doll.
+  - Find the child's doll.
+  - Report back to the child.
   isQuestCompleted: 0
   isSoulConsumed: 0
   isDecisionMade: 0
@@ -2768,8 +2768,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLogHint:
-  - Find the locket for the widow.
-  - Bring the locket to the widow.
+  - Find the widow's locket.
+  - Report back to the widow.
   isQuestCompleted: 0
   isSoulConsumed: 0
   isDecisionMade: 0
@@ -5226,7 +5226,6 @@ GameObject:
   - component: {fileID: 446341622}
   - component: {fileID: 446341624}
   - component: {fileID: 446341625}
-  - component: {fileID: 446341626}
   - component: {fileID: 446341630}
   - component: {fileID: 446341627}
   - component: {fileID: 446341628}
@@ -5358,22 +5357,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   consumableInventory: []
   soulObjectInventory: []
---- !u!114 &446341626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 446341619}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8263a0dcc6e85cf4b80315494e64a072, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 446341621}
-  playerWalking: 0
-  canInteract: 1
-  myCamera: {fileID: 519420031}
 --- !u!70 &446341627
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6264,7 +6247,7 @@ MonoBehaviour:
     dialogueList:
     - stringList:
       - My work ain't what it used it be ever since I lost my pa's knife.
-      - I lost it in the old shed by the lake. Can't see a thing in there...
+      - I lost it in the old shed by the lake. Can't see a thing in there, though...
     - stringList:
       - What in the world? Where did you find that!
       - That knife was my father's pride and joy.
@@ -6310,8 +6293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLogHint:
-  - Find the knife for the guy.
-  - Bring the knife to the guy.
+  - Find the craftsman's knife.
+  - Report back to the craftsman.
   isQuestCompleted: 0
   isSoulConsumed: 0
   isDecisionMade: 0
@@ -9390,7 +9373,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 400}
-  m_SizeDelta: {x: 350, y: 250}
+  m_SizeDelta: {x: 275, y: 175}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &732982384
 MonoBehaviour:
@@ -19263,8 +19246,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -40, y: -40}
+  m_AnchoredPosition: {x: 0, y: 10}
+  m_SizeDelta: {x: -50, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1568942104
 MonoBehaviour:
@@ -19288,8 +19271,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
-  m_sharedMaterial: {fileID: 8324283224796415102, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
+  m_sharedMaterial: {fileID: 6390954191022912697, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19313,15 +19296,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -21182,7 +21165,7 @@ GameObject:
   - component: {fileID: 1789608541}
   - component: {fileID: 1789608543}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: BarrierEntrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22539,7 +22522,7 @@ GameObject:
   - component: {fileID: 1898065635}
   - component: {fileID: 1898065637}
   m_Layer: 0
-  m_Name: Square
+  m_Name: BarrierLake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23131,6 +23114,10 @@ MonoBehaviour:
   player: {fileID: 446341619}
   questLog: {fileID: 1133989561}
   questPrefab: {fileID: 8342788788049208604, guid: df59088b54c7c254c95ecdc70c038b33, type: 3}
+  ambience:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 654f971f33ee4384ab6bf603ea1c9dfd, type: 2}
 --- !u!114 &1978225504
 MonoBehaviour:
   m_ObjectHideFlags: 0
