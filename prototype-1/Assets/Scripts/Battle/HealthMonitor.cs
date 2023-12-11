@@ -68,7 +68,6 @@ public class HealthMonitor : MonoBehaviour
         float startTime = Time.time;
         float startFillAmount = healthAmount.fillAmount;
         float duration = 2f;
-
         print((float)newHealth / charac.GetMaxHP());
 
         while (Time.time - startTime < duration)

@@ -31,6 +31,12 @@ public class Character : MonoBehaviour
     private Stat _hp;
     private Stat _atk;
 
+    public Stat Hp
+    {
+        get { return _hp; }
+        set { _hp = value; }
+    }
+
     void Start()
     {
         _hp = new(HP);
