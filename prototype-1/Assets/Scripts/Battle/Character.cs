@@ -21,6 +21,8 @@ public class Character : MonoBehaviour
     public bool isTakingRecoil = false;
     public bool isTurnSkipped = false;
 
+    public HealthMonitor healthbar;
+
     [SerializeField]
     private int HP;
     [SerializeField]
@@ -54,9 +56,25 @@ public class Character : MonoBehaviour
     }
 
     // general
+    public int GetCurrentHP()
+    {
+        return _hp.value;
+    }
+
+    public int GetMaxHP()
+    {
+        return HP;
+    }
+
     public void ChangeHP(int change)
     {
         _hp.ChangeStat(change);
+
+        if (_hp.value < 0) _hp.value = 0;
+        else if (_hp.value > HP) _hp.value = HP;
+
+        if (CompareTag("Player")) healthbar.ChangeHealth();
+
         if (_hp.value <= 0)
         {
             if (CompareTag("Player")) battleManager.typewriter.Write("You have perished.");

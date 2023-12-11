@@ -10,7 +10,9 @@ public class DayMonitor : MonoBehaviour
     Dictionary<TIME, string> timeToAkState = new();
 
     [SerializeField]
-    private Color[] skyColors;
+    private Color dayColor;
+    [SerializeField]
+    private Color nightColor;
 
     void Start()
     {
@@ -40,10 +42,14 @@ public class DayMonitor : MonoBehaviour
     public IEnumerator ChangeSkyColor(TIME timeOfDay)
     {
         float startTime = Time.time;
+        float ratio = ((int)timeOfDay + 1) / 4;
+
+        Color newSkyColor = Color.Lerp(dayColor, nightColor, ratio);
+        Color currentColor = Camera.main.backgroundColor;
 
         while (Time.time - startTime < 5) {
-            Color newSkyColor = Color.Lerp(skyColors[(int)timeOfDay - 1], skyColors[(int)timeOfDay], Time.time - startTime / 5);
-            Camera.main.backgroundColor = newSkyColor;
+            Color updatedColor = Color.Lerp(currentColor, newSkyColor, (Time.time - startTime / 5));
+            Camera.main.backgroundColor = updatedColor;
             yield return null;
         } 
     }
