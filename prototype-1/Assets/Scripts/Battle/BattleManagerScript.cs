@@ -18,14 +18,14 @@ public class BattleManagerScript : MonoBehaviour
     public SetDemonBody demonBody;
 
     public TypewriterUI typewriter;
-    public int turnCount;
+    public static int turnCount;
+    public EndingCheck checkEnding;
 
     // make some way to create stock quotes?
 
     void Start()
     {
-        fightButton.SetActive(true);
-        currentPhase = PHASE.PLAYERSTART;
+        currentPhase = PHASE.PLAYERACT;
         demonEye.SetEyeSprite(currentPhase);
         turnCount = 1;
         StartCoroutine(Wait());
@@ -34,6 +34,8 @@ public class BattleManagerScript : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(2.0f);
+        fightButton.SetActive(true);
+        inventory.SetActive(true);
     }
 
 
@@ -45,19 +47,27 @@ public class BattleManagerScript : MonoBehaviour
         switch (toPhase)
         {
             case PHASE.PLAYERSTART:
+                if (player.currentStatus == Character.STATUS.BLEEDING) typewriter.Write("Your wounds are severe.");
+                else typewriter.Write("The Demon slumbers before you.");
                 turnCount += 1;
-                fightButton.SetActive(true);
-                typewriter.Write("The Demon slumbers.");
+                player.UpdateOnNewTurn();
                 currentPhase = PHASE.PLAYERSTART;
                 break;
             case PHASE.PLAYERACT:
-                typewriter.Write("The Demon stirs."); // "Select an action"?
-                fightButton.SetActive(false);
+                if (player.isTurnSkipped) {
+                    demonEye.SetEyeSprite(PHASE.PLAYERACT);
+                    ChangeState(2);
+                    break;
+                }
+                typewriter.Write("The Demon stirs. What is your move?"); 
+                fightButton.SetActive(true);
                 inventory.SetActive(true);
                 currentPhase = PHASE.PLAYERACT;
                 break;
             case PHASE.ENEMY:
-                typewriter.Write("The Demon watches.");
+                if (demon.currentStatus == Character.STATUS.BLEEDING) typewriter.Write("The Demon writhes in pain.");
+                else typewriter.Write("The Demon watches you.");
+                fightButton.SetActive(false);
                 inventory.SetActive(false);
                 currentPhase = PHASE.ENEMY;
                 StartCoroutine(RunEnemyPhase());
@@ -69,8 +79,14 @@ public class BattleManagerScript : MonoBehaviour
     IEnumerator RunEnemyPhase()
     {
         yield return new WaitForSeconds(3.2f);
-        if (turnCount % 4 == 0) demon.DemonStrongAttack(player);
-        else demon.DemonWeakAttack(player);
+
+        if (demon.isTurnSkipped) typewriter.Write("The Demon strikes at air.");
+        else
+        {
+            if (turnCount % 4 == 0) demon.DemonStrongAttack(player);
+            else demon.DemonWeakAttack(player);
+        }
+
         yield return new WaitForSeconds(3.2f);
         demonBody.SetBodySprite(0);
         ChangeState((int)PHASE.PLAYERSTART);

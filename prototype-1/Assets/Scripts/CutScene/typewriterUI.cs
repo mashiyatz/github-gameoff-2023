@@ -19,9 +19,13 @@ public class TypewriterUI : MonoBehaviour
 	[SerializeField] bool doReset = false;
 	[SerializeField] GameObject[] nextTextbox;
 
-    // Use this for initialization
+	public bool isFinishedWriting = true;
+	[SerializeField]
+	private AK.Wwise.Event textSound;
 
-    private void Awake()
+	// Use this for initialization
+
+	private void Awake()
     {
 /*		_text = GetComponent<Text>()!;
 		_tmpProText = GetComponent<TMP_Text>()!;*/
@@ -78,6 +82,7 @@ public class TypewriterUI : MonoBehaviour
 
 		yield return new WaitForSeconds(delayBeforeStart);
 
+		textSound.Post(gameObject);
 		foreach (char c in writer)
 		{
 			if (_tmpProText.text.Length > 0)
@@ -101,6 +106,9 @@ public class TypewriterUI : MonoBehaviour
 				go.SetActive(true);
             }
         }
+
+		isFinishedWriting = true;
+		textSound.Stop(gameObject);
 	}
 
     private void OnEnable()
@@ -125,8 +133,9 @@ public class TypewriterUI : MonoBehaviour
 	public void Write(string phrase)
     {
 		StopCoroutine("TypeWriterTMP");
+		isFinishedWriting = false;
 		writer = phrase;
 		_tmpProText.text = "";
 		StartCoroutine("TypeWriterTMP");
-    }
+	}
 }

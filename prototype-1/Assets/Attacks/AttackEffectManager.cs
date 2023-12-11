@@ -9,19 +9,12 @@ public class AttackEffectManager : MonoBehaviour
     public GameObject healing;
     
     public GameObject particleSystemPrefab;
+    public bool isFinishedPlaying = true;
     
-    void Start()
-    {
-        //PlayHeavyAtt();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void PlayHealing()
     {
+        isFinishedPlaying = false;
+
         // Instantiate the particle system game object
         GameObject particleSystemObject = Instantiate(healing);
 
@@ -34,6 +27,8 @@ public class AttackEffectManager : MonoBehaviour
     
     public void PlayLightAtt()
     {
+        isFinishedPlaying = false;
+
         // Instantiate the particle system game object
         GameObject particleSystemObject = Instantiate(lightAttack);
 
@@ -46,6 +41,8 @@ public class AttackEffectManager : MonoBehaviour
     
     public void PlayHeavyAtt()
     {
+        isFinishedPlaying = false;
+
         // Instantiate the particle system game object
         GameObject particleSystemObject = Instantiate(heavyAttack, transform.position, Quaternion.identity);
 
@@ -60,6 +57,7 @@ public class AttackEffectManager : MonoBehaviour
     {
         // Wait until the particle system has finished playing
         yield return new WaitUntil(() => !particleSystem.isPlaying);
+        isFinishedPlaying = true;
 
         // Destroy the particle system game object
         Destroy(particleSystem.gameObject);

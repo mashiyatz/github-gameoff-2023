@@ -6,21 +6,35 @@ public class Character : MonoBehaviour
 {
     public enum STATUS { HEALTHY, BLEEDING, DEAD }
     public STATUS currentStatus;
-    public TypewriterUI typewriter;
+    // public TypewriterUI typewriter;
     public Character target;
-    public AttackEffectManager attackManage;
+    public AttackEffectManager attackManager;
+    public BattleManagerScript battleManager;
 
     public bool[] goodDecisions;
+    public delegate void UpdateTurnBasedStat(int turn);
+    public event UpdateTurnBasedStat OnNewTurn;
+
+    private int knifeUsedTurn;
+    private int locketUsedTurn;
+    private int dollUsedTurn;
+    public bool isTakingRecoil = false;
+    public bool isTurnSkipped = false;
+
+    public HealthMonitor healthbar;
 
     [SerializeField]
     private int HP;
-
-
+    [SerializeField]
+    private int ATK;
+        
     private Stat _hp;
+    private Stat _atk;
 
     void Start()
     {
         _hp = new(HP);
+        _atk = new(ATK);
         currentStatus = STATUS.HEALTHY;
         goodDecisions = new bool[3];
 
@@ -35,111 +49,211 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void UpdateOnNewTurn()
+    {
+        OnNewTurn?.Invoke(BattleManagerScript.turnCount);
+        StartCoroutine(WaitForTransition(1, 3f));
+    }
+
     // general
+    public int GetCurrentHP()
+    {
+        return _hp.value;
+    }
+
+    public int GetMaxHP()
+    {
+        return HP;
+    }
+
     public void ChangeHP(int change)
     {
         _hp.ChangeStat(change);
+
+        if (_hp.value < 0) _hp.value = 0;
+        else if (_hp.value > HP) _hp.value = HP;
+
+        if (CompareTag("Player")) healthbar.ChangeHealth();
+
         if (_hp.value <= 0)
         {
-            if (CompareTag("Player")) typewriter.Write("You have perished.");
-            else if (CompareTag("Boss")) typewriter.Write("The Demon is no more.");
+            if (CompareTag("Player")) battleManager.typewriter.Write("You have perished.");
+            else if (CompareTag("Boss")) battleManager.typewriter.Write("The Demon is no more.");
             currentStatus = STATUS.DEAD;
+            battleManager.checkEnding.TriggerEnding();
         }
         else if (_hp.value < HP / 3)
         {
-            if (CompareTag("Player")) typewriter.Write("You are gravely wounded.");
-            else if (CompareTag("Boss")) typewriter.Write("The Demon shrieks in pain.");
             currentStatus = STATUS.BLEEDING;
         }
         else currentStatus = STATUS.HEALTHY;
-        print($"HP: {_hp.value}");
+        print($"{tag} HP: {_hp.value}");
     }
 
     public void DamageEnemy(Character target, int damage)
     {
         target.ChangeHP(-damage);
+        if (isTakingRecoil) ChangeHP(-damage / 4);
     }
 
     // demon
     public void DemonWeakAttack(Character target)
     {
-        typewriter.Write("The Demon strikes.");
+        battleManager.typewriter.Write("The Demon strikes.");
         GetComponent<SetDemonBody>().SetBodySprite(1);
-        DamageEnemy(target, 3);
+        DamageEnemy(target, Random.Range(5, 8));
     }
 
     public void DemonStrongAttack(Character target)
     {
-        typewriter.Write("The Demon rips.");
+        battleManager.typewriter.Write("The Demon tears through.");
         GetComponent<SetDemonBody>().SetBodySprite(2);
-        DamageEnemy(target, 8);
+        DamageEnemy(target, Random.Range(10, 14));
+    }
+
+    // player
+    public void PlayerAttack()
+    {
+        battleManager.typewriter.Write("You swing at the Demon.");
+        DamageEnemy(target, _atk.value);
+        attackManager.PlayLightAtt();
+    }
+
+    IEnumerator WaitForTransition(int nextState, float waitDuration)
+    {
+        yield return new WaitForSeconds(waitDuration);
+        while (!battleManager.typewriter.isFinishedWriting || !attackManager.isFinishedPlaying) yield return null;
+        yield return new WaitForSeconds(0.5f);
+        battleManager.ChangeState(nextState);
     }
 
     public void DollAttack()
     {
-        if (goodDecisions[0]) PlayerExplosion(target);
-        else PlayerDefend(target);
+        if (goodDecisions[0]) DollAttackBad(target);
+        else DollAttackGood(target);
+
+        StartCoroutine(WaitForTransition(2, 2f));
     }
 
     public void KnifeAttack()
     {
-        if (goodDecisions[1]) PlayerStrongAttack(target);
-        else PlayerWeakAttack(target);
+        if (goodDecisions[1]) KnifeAttackBad();
+        else KnifeAttackGood(target);
+
+        StartCoroutine(WaitForTransition(2, 2f));
     }
 
     public void LocketAttack()
     {
-        if (goodDecisions[2]) PlayerBlast(target);
-        else PlayerPray();
+        if (goodDecisions[2]) LocketAttackBad();
+        else LocketAttackGood();
+
+        StartCoroutine(WaitForTransition(2, 2f));
     }
 
 
     // player-good
-    private void PlayerWeakAttack(Character target)
+    private void KnifeAttackGood(Character target)
     {
-        typewriter.Write("You swing at the Demon.");
-        DamageEnemy(target, 3);
-        attackManage.PlayLightAtt();
+        battleManager.typewriter.Write("You charge at the Demon.");
+        DamageEnemy(target, 15);
+        knifeUsedTurn = BattleManagerScript.turnCount;
+        OnNewTurn += Recharge;
+        isTurnSkipped = true;
+        attackManager.PlayHeavyAtt();
     }
 
-    private void PlayerDefend(Character target)
+    private void Recharge(int turnNumber)
     {
-        typewriter.Write("You protect yourself.");
-        DamageEnemy(target, Random.Range(2, 4));
-        ChangeHP(Random.Range(1, 3));
-        //attackManage.PlayHeavyAtt();
+        if (turnNumber == knifeUsedTurn + 1)
+        {
+            battleManager.typewriter.Write("You are overwhelmed by fatigue.");
+        } else if (turnNumber == knifeUsedTurn + 2)
+        {
+            OnNewTurn -= Recharge;
+            isTurnSkipped = false;
+        }
     }
 
-    private void PlayerPray()
+    private void DollAttackGood(Character target)
     {
-        typewriter.Write("You tend to your wounds.");
-        ChangeHP(5);
-        attackManage.PlayHealing();
+        battleManager.typewriter.Write("You brace yourself against the Demon.");
+        target.isTakingRecoil = true;
+        dollUsedTurn = BattleManagerScript.turnCount;
+        OnNewTurn += MakeEnemyRecoil;
+    }
+
+    private void MakeEnemyRecoil(int turnNumber)
+    {
+        if (turnNumber == dollUsedTurn + 3)
+        {
+            target.isTakingRecoil = false;
+            OnNewTurn -= MakeEnemyRecoil;
+        }
+    }
+
+    private void LocketAttackGood()
+    {
+        battleManager.typewriter.Write("You tend to your wounds.");
+        ChangeHP(30);
+        attackManager.PlayHealing();
     }
 
     // player-bad
-    private void PlayerStrongAttack(Character target)
+    private void KnifeAttackBad()
     {
-        typewriter.Write("You bludgeon the Demon.");
-        DamageEnemy(target, 6);
-        attackManage.PlayLightAtt();
+        battleManager.typewriter.Write("You are consumed by bloodlust.");
+        _atk.ChangeStat(5);
+        knifeUsedTurn = BattleManagerScript.turnCount;
+        OnNewTurn += RevertAttack;
+        attackManager.PlayHeavyAtt();
     }
 
-    private void PlayerExplosion(Character target)
+    private void RevertAttack(int turnNumber)
     {
-        typewriter.Write("You engulf the Demon in flames.");
-        DamageEnemy(target, 8);
-        DamageEnemy(this, 3);
-        attackManage.PlayHeavyAtt();
+        if (turnNumber == knifeUsedTurn + 4)
+        {
+            _atk.ChangeStat(-5);
+            OnNewTurn -= RevertAttack;
+        }
     }
 
-    private void PlayerBlast(Character target)
+    private void DollAttackBad(Character target)
     {
-        int damage = Random.Range(0, 2) * 10;
-        if (damage == 0) typewriter.Write("The Demon eludes you.");
-        else typewriter.Write("The Demon cries out in pain.");
-        DamageEnemy(target, damage);
-        //attackManage.PlayHeavyAtt();
+        battleManager.typewriter.Write("You distract the Demon with your illusion.");
+        ChangeHP(-5);
+        dollUsedTurn = BattleManagerScript.turnCount;
+        OnNewTurn += SkipEnemyTurn;
+        target.isTurnSkipped = true;
+    } 
+
+    private void SkipEnemyTurn(int turnNumber)
+    {
+        if (turnNumber == dollUsedTurn + 1)
+        {
+            battleManager.typewriter.Write("The illusion fades.");
+            target.isTurnSkipped = false;
+            OnNewTurn -= SkipEnemyTurn;
+        }
+    }
+
+    private void LocketAttackBad()
+    {
+        battleManager.typewriter.Write("Your flesh is purged of wounds.");
+        locketUsedTurn = BattleManagerScript.turnCount;
+        OnNewTurn += HealPerTurn;
+        ChangeHP(10);
+        attackManager.PlayHealing();
+    }
+
+    private void HealPerTurn(int turnNumber)
+    {
+        if (turnNumber == locketUsedTurn + 3)
+        {
+            ChangeHP(10);
+            attackManager.PlayHealing();
+            OnNewTurn -= HealPerTurn;
+        }
     }
 
     void Update()
