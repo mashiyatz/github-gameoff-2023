@@ -22,15 +22,19 @@ public class GMScript : MonoBehaviour
     public RectTransform questLog;
     public GameObject questPrefab;
 
+    [SerializeField]
+    private AK.Wwise.Event ambience;
+
     void Start()
     {
         currentState = STATE.MOVE;
+        ambience.Post(gameObject);
     }
 
     public GameObject CreateQuestLogEntry(string questHint)
     {
         var go = Instantiate(questPrefab, questLog);
-        go.GetComponent<TextMeshProUGUI>().text = questHint;
+        go.GetComponent<TextMeshProUGUI>().text = $"- {questHint}";
         return go;
     }
 
@@ -99,7 +103,7 @@ public class GMScript : MonoBehaviour
 
     void Update()
     {
-        //affects NPC interaction/movement
+/*        //affects NPC interaction/movement
         if (GetCurrentState() == STATE.INTERACT)
         {
             player.GetComponent<PlayerClickAndMove>().canInteract = false;
@@ -107,7 +111,7 @@ public class GMScript : MonoBehaviour
         else
         {
             player.GetComponent<PlayerClickAndMove>().canInteract = true;
-        }
+        }*/
 
     }
 }

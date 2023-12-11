@@ -337,8 +337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLogHint:
-  - Get the doll for the kid.
-  - Tell the kid you got the doll.
+  - Find the child's doll.
+  - Report back to the child.
   isQuestCompleted: 0
   isSoulConsumed: 0
   isDecisionMade: 0
@@ -2722,7 +2722,7 @@ MonoBehaviour:
     dialogueList:
     - stringList:
       - I've lost my late husband's pendant.
-      - I know had it when I visited his grave...
+      - I know I had it when I visited his grave...
     - stringList:
       - Oh! Is that what I think it is?
       - I didn't think I would ever get to see his face again.
@@ -2768,8 +2768,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLogHint:
-  - Find the locket for the widow.
-  - Bring the locket to the widow.
+  - Find the widow's locket.
+  - Report back to the widow.
   isQuestCompleted: 0
   isSoulConsumed: 0
   isDecisionMade: 0
@@ -3976,6 +3976,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61c23071671cf84e862e6b05b199a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dayColor: {r: 0.5529412, g: 0.52156866, b: 0.59607846, a: 0}
+  nightColor: {r: 0.14117648, g: 0.10980392, b: 0.16078432, a: 0}
 --- !u!4 &340186521
 Transform:
   m_ObjectHideFlags: 0
@@ -5226,7 +5228,6 @@ GameObject:
   - component: {fileID: 446341622}
   - component: {fileID: 446341624}
   - component: {fileID: 446341625}
-  - component: {fileID: 446341626}
   - component: {fileID: 446341630}
   - component: {fileID: 446341627}
   - component: {fileID: 446341628}
@@ -5358,22 +5359,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   consumableInventory: []
   soulObjectInventory: []
---- !u!114 &446341626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 446341619}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8263a0dcc6e85cf4b80315494e64a072, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 446341621}
-  playerWalking: 0
-  canInteract: 1
-  myCamera: {fileID: 519420031}
 --- !u!70 &446341627
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -6264,7 +6249,7 @@ MonoBehaviour:
     dialogueList:
     - stringList:
       - My work ain't what it used it be ever since I lost my pa's knife.
-      - I lost it in the old shed by the lake. Can't see a thing in there...
+      - I lost it in the old shed by the lake. Can't see a thing in there, though...
     - stringList:
       - What in the world? Where did you find that!
       - That knife was my father's pride and joy.
@@ -6310,8 +6295,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLogHint:
-  - Find the knife for the guy.
-  - Bring the knife to the guy.
+  - Find the craftsman's knife.
+  - Report back to the craftsman.
   isQuestCompleted: 0
   isSoulConsumed: 0
   isDecisionMade: 0
@@ -6646,7 +6631,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.16037738, g: 0.11120507, b: 0.11120507, a: 0}
+  m_BackGroundColor: {r: 0.5529412, g: 0.52156866, b: 0.59607846, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -8094,6 +8079,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61c23071671cf84e862e6b05b199a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dayColor: {r: 0, g: 0, b: 0, a: 0}
+  nightColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &621336270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9169,7 +9156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 0.8352941}
+  m_Color: {r: 0.11372549, g: 0.11372549, b: 0.11372549, a: 0.8352941}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9390,7 +9377,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 400}
-  m_SizeDelta: {x: 350, y: 250}
+  m_SizeDelta: {x: 275, y: 175}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &732982384
 MonoBehaviour:
@@ -10993,7 +10980,7 @@ GameObject:
   - component: {fileID: 872723395}
   - component: {fileID: 872723398}
   - component: {fileID: 872723397}
-  - component: {fileID: 872723396}
+  - component: {fileID: 872723399}
   m_Layer: 5
   m_Name: GetReadyText
   m_TagString: Untagged
@@ -11021,25 +11008,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 200}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &872723396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872723394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65e43581bc8ff2044bdc0cc3a4265943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBeforeStart: 0
-  timeBtwChars: 0.05
-  leadingChar: 
-  leadingCharBeforeDelay: 0
-  isNextText: 1
-  doReset: 1
-  nextTextbox: []
 --- !u!114 &872723397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11139,6 +11107,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872723394}
   m_CullTransparentMesh: 1
+--- !u!114 &872723399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872723394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c06f64f0039718408814ad13a2fa157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBeforeStart: 0
+  timeBtwChars: 0.1
+  leadingChar: 
+  leadingCharBeforeDelay: 0
+  isNextText: 0
+  doReset: 0
+  nextTextbox: []
+  isFinishedWriting: 1
+  textSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: aea21cf0784496c44ab73c43163115e8, type: 2}
 --- !u!1 &886683723
 GameObject:
   m_ObjectHideFlags: 0
@@ -15814,7 +15806,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Will you return it?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_sharedMaterial: {fileID: 8324283224796415102, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -15878,7 +15870,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1279893499
@@ -15910,6 +15902,11 @@ MonoBehaviour:
   nextTextbox:
   - {fileID: 2043873246}
   - {fileID: 1270030246}
+  isFinishedWriting: 1
+  textSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: aea21cf0784496c44ab73c43163115e8, type: 2}
 --- !u!1 &1282915984
 GameObject:
   m_ObjectHideFlags: 0
@@ -19263,8 +19260,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -40, y: -40}
+  m_AnchoredPosition: {x: 0, y: 10}
+  m_SizeDelta: {x: -50, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1568942104
 MonoBehaviour:
@@ -19288,8 +19285,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
-  m_sharedMaterial: {fileID: 8324283224796415102, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
+  m_sharedMaterial: {fileID: 6390954191022912697, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19313,15 +19310,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -21182,7 +21179,7 @@ GameObject:
   - component: {fileID: 1789608541}
   - component: {fileID: 1789608543}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: BarrierEntrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21405,7 +21402,7 @@ MonoBehaviour:
   m_text: A sigh rumbles within you, and the object in your pocket begins to feel
     warm between your fingers. You crave it.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_sharedMaterial: {fileID: 8324283224796415102, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -21469,7 +21466,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1818166250
@@ -21500,6 +21497,11 @@ MonoBehaviour:
   doReset: 1
   nextTextbox:
   - {fileID: 1279893495}
+  isFinishedWriting: 1
+  textSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: aea21cf0784496c44ab73c43163115e8, type: 2}
 --- !u!1001 &1828134643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22539,7 +22541,7 @@ GameObject:
   - component: {fileID: 1898065635}
   - component: {fileID: 1898065637}
   m_Layer: 0
-  m_Name: Square
+  m_Name: BarrierLake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23131,6 +23133,10 @@ MonoBehaviour:
   player: {fileID: 446341619}
   questLog: {fileID: 1133989561}
   questPrefab: {fileID: 8342788788049208604, guid: df59088b54c7c254c95ecdc70c038b33, type: 3}
+  ambience:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 654f971f33ee4384ab6bf603ea1c9dfd, type: 2}
 --- !u!114 &1978225504
 MonoBehaviour:
   m_ObjectHideFlags: 0

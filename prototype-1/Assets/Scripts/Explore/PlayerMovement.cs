@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
         if (gameManager.GetCurrentState() != GMScript.STATE.MOVE)
         {
             animator.SetBool("isWalking", false);
+            isPlayingFootsteps = false;
+            footsteps.Stop(gameObject);
             return;
         }
 
