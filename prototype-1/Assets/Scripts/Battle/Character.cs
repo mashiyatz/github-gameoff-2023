@@ -9,14 +9,21 @@ public class Character : MonoBehaviour
     public TypewriterUI typewriter;
     public Character target;
     public AttackEffectManager attackManage;
+    public HealthMonitor healthBar;
 
     public bool[] goodDecisions;
 
     [SerializeField]
-    private int HP;
+    public int HP;
 
 
     private Stat _hp;
+
+    public Stat Hp
+    {
+        get { return _hp; }
+        set { _hp = value; }
+    }
 
     void Start()
     {
@@ -58,6 +65,10 @@ public class Character : MonoBehaviour
     public void DamageEnemy(Character target, int damage)
     {
         target.ChangeHP(-damage);
+        if (target.CompareTag("Player"))
+        {
+            healthBar.ChangeHealth();
+        }
     }
 
     // demon

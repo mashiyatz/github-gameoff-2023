@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 
 public class Stat
 {
@@ -13,5 +14,10 @@ public class Stat
     public void ChangeStat(int change)
     {
         value += change;
+    }
+
+    public int getValue()
+    {
+        return value;
     }
 }
