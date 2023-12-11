@@ -9156,7 +9156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 0.8352941}
+  m_Color: {r: 0.11372549, g: 0.11372549, b: 0.11372549, a: 0.8352941}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10980,7 +10980,7 @@ GameObject:
   - component: {fileID: 872723395}
   - component: {fileID: 872723398}
   - component: {fileID: 872723397}
-  - component: {fileID: 872723396}
+  - component: {fileID: 872723399}
   m_Layer: 5
   m_Name: GetReadyText
   m_TagString: Untagged
@@ -11008,25 +11008,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 200}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &872723396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872723394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65e43581bc8ff2044bdc0cc3a4265943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBeforeStart: 0
-  timeBtwChars: 0.05
-  leadingChar: 
-  leadingCharBeforeDelay: 0
-  isNextText: 1
-  doReset: 1
-  nextTextbox: []
 --- !u!114 &872723397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11126,6 +11107,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872723394}
   m_CullTransparentMesh: 1
+--- !u!114 &872723399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872723394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c06f64f0039718408814ad13a2fa157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBeforeStart: 0
+  timeBtwChars: 0.1
+  leadingChar: 
+  leadingCharBeforeDelay: 0
+  isNextText: 0
+  doReset: 0
+  nextTextbox: []
+  isFinishedWriting: 1
+  textSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: aea21cf0784496c44ab73c43163115e8, type: 2}
 --- !u!1 &886683723
 GameObject:
   m_ObjectHideFlags: 0
@@ -15801,7 +15806,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Will you return it?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_sharedMaterial: {fileID: 8324283224796415102, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -15865,7 +15870,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1279893499
@@ -15901,7 +15906,7 @@ MonoBehaviour:
   textSound:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: aea21cf0784496c44ab73c43163115e8, type: 2}
 --- !u!1 &1282915984
 GameObject:
   m_ObjectHideFlags: 0
@@ -21397,7 +21402,7 @@ MonoBehaviour:
   m_text: A sigh rumbles within you, and the object in your pocket begins to feel
     warm between your fingers. You crave it.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_sharedMaterial: {fileID: 8324283224796415102, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -21461,7 +21466,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1818166250
@@ -21496,7 +21501,7 @@ MonoBehaviour:
   textSound:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: aea21cf0784496c44ab73c43163115e8, type: 2}
 --- !u!1001 &1828134643
 PrefabInstance:
   m_ObjectHideFlags: 0

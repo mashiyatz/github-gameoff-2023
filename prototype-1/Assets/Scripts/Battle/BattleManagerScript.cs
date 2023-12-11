@@ -17,7 +17,7 @@ public class BattleManagerScript : MonoBehaviour
     public SetDemonEye demonEye;
     public SetDemonBody demonBody;
 
-    public TypewriterUI typewriter;
+    public TypewriterEffect typewriter;
     public static int turnCount;
     public EndingCheck checkEnding;
 

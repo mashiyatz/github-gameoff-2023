@@ -117,6 +117,8 @@ public class Character : MonoBehaviour
         battleManager.typewriter.Write("You swing at the Demon.");
         DamageEnemy(target, _atk.value);
         attackManager.PlayLightAtt();
+
+        StartCoroutine(WaitForTransition(2, 2f));
     }
 
     IEnumerator WaitForTransition(int nextState, float waitDuration)

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class TypewriterUI : MonoBehaviour
+public class TypewriterEffect : MonoBehaviour
 {
 	Text _text;
 	TMP_Text _tmpProText;
