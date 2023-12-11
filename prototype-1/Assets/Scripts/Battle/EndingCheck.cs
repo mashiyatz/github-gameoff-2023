@@ -7,6 +7,7 @@ public class EndingCheck : MonoBehaviour
 {
 
     public Character demon;
+    public Character player;
 
     public string goodEnd;
     public string badEnd;
@@ -26,24 +27,20 @@ public class EndingCheck : MonoBehaviour
             evilCheck = Random.Range(0, 3);
         }
 
-        if(evilCheck > 1)
-        {
-            isEvil = true;
-        }
+        if(evilCheck > 1) isEvil = true;
     }
 
-    void Update()
+    public void TriggerEnding()
     {
+        AkSoundEngine.StopAll();
+
         if (demon.currentStatus == Character.STATUS.DEAD)
         {
-            if (isEvil == true)
-            {
-                SceneManager.LoadScene(badEnd);
-            }
-            if (isEvil == false)
-            {
-                SceneManager.LoadScene(goodEnd);
-            }
+            if (isEvil) SceneManager.LoadScene(badEnd);
+            else SceneManager.LoadScene(goodEnd);
+        } else if (player.currentStatus == Character.STATUS.DEAD)
+        {
+            SceneManager.LoadScene(badEnd);
         }
     }
 }
