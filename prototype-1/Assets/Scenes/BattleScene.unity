@@ -722,7 +722,7 @@ GameObject:
   - component: {fileID: 536017654}
   - component: {fileID: 536017653}
   m_Layer: 0
-  m_Name: Global Volume (Strong)
+  m_Name: Global Volume (Strong, Demon)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -744,7 +744,7 @@ MonoBehaviour:
   priority: 4.01
   blendDistance: 0
   weight: 0
-  sharedProfile: {fileID: 11400000, guid: 3ac6d6de6f496e648880ea5dd5b4d429, type: 2}
+  sharedProfile: {fileID: 11400000, guid: ae8b84fa1da8e1246bc01e1a58cdf080, type: 2}
 --- !u!4 &536017654
 Transform:
   m_ObjectHideFlags: 0
@@ -1347,6 +1347,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051338568}
   m_CullTransparentMesh: 1
+--- !u!1 &1141068096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1141068098}
+  - component: {fileID: 1141068097}
+  m_Layer: 0
+  m_Name: Global Volume_Protect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1141068097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141068096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 4.01
+  blendDistance: 0
+  weight: 0
+  sharedProfile: {fileID: 11400000, guid: 071f02cab850d0247874c26b17fa4f0f, type: 2}
+--- !u!4 &1141068098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141068096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1401168457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,7 +2055,7 @@ GameObject:
   - component: {fileID: 1875443379}
   - component: {fileID: 1875443378}
   m_Layer: 0
-  m_Name: Global Volume (Weak)
+  m_Name: Global Volume (Weak, Demon)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2887,7 +2936,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d5b4cf20b4c5fe4283df26937f8f970, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70bc4c7235633204793de93995644e4f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3557,7 +3606,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d5b4cf20b4c5fe4283df26937f8f970, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70bc4c7235633204793de93995644e4f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3992,7 +4041,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d5b4cf20b4c5fe4283df26937f8f970, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70bc4c7235633204793de93995644e4f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
