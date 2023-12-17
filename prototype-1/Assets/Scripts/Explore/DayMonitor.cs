@@ -16,6 +16,8 @@ public class DayMonitor : MonoBehaviour
 
     void Start()
     {
+        Camera.main.backgroundColor = dayColor;
+
         timeToAkState.Add(TIME.DAY, "DayMix");
         timeToAkState.Add(TIME.DUSK, "DustMix");
         timeToAkState.Add(TIME.NIGHT, "NightMix");

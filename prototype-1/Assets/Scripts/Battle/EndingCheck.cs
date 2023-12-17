@@ -11,7 +11,7 @@ public class EndingCheck : MonoBehaviour
 
     public string goodEnd;
     public string badEnd;
-    public bool isEvil;
+    public static bool isEvil;
 
     private int evilCheck;
 

@@ -48,7 +48,7 @@ public class NPCQuest : MonoBehaviour
         if (isSoulConsumed)
         {
             npcDialogue.dialogueList.First().RemoveAt(0);
-            soulObject.linkedUIObject.color = new Color(0, 0, 0, 1);
+            //soulObject.linkedUIObject.color = new Color(0, 0, 0, 1);
         }
         else
         {

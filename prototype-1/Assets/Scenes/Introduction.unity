@@ -663,6 +663,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeTime: 25
   sceneName: PlayScene
+  mainMenuMusic:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: f49c5c00998aeb143be2f22e8e073119, type: 2}
 --- !u!4 &995801686
 Transform:
   m_ObjectHideFlags: 0

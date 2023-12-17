@@ -12,8 +12,6 @@ public class HealthMonitor : MonoBehaviour
     
     private int currentHealth;
     private int newHealth;
-
-    public EndingCheck thoustEvil;
     
     // Start is called before the first frame update
     
@@ -21,7 +19,7 @@ public class HealthMonitor : MonoBehaviour
     private float scaleMax = 1.35f;
     void Start()
     {
-        if (thoustEvil.isEvil)
+        if (EndingCheck.isEvil)
         {
             healthAmount.sprite = badHeart;
         }

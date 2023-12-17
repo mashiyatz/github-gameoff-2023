@@ -6,15 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class ChangeSceneOnTimer : MonoBehaviour
 {
-
     public float changeTime;
     public string sceneName;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        
+        AkSoundEngine.PostEvent("Play_Opening_Demon_Voice", gameObject);        
     }
 
     // Update is called once per frame
@@ -23,6 +20,7 @@ public class ChangeSceneOnTimer : MonoBehaviour
         changeTime -= Time.deltaTime;
         if(changeTime <= 0)
         {
+            AkSoundEngine.StopAll();
             SceneManager.LoadScene(sceneName);
         }
         

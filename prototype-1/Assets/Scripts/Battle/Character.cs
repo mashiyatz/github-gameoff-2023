@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     public AttackEffectManager attackManager;
     public BattleManagerScript battleManager;
 
-    public bool[] goodDecisions;
+    public bool[] evilDecision;
     public delegate void UpdateTurnBasedStat(int turn);
     public event UpdateTurnBasedStat OnNewTurn;
 
@@ -36,15 +36,15 @@ public class Character : MonoBehaviour
         _hp = new(HP);
         _atk = new(ATK);
         currentStatus = STATUS.HEALTHY;
-        goodDecisions = new bool[3];
+        evilDecision = new bool[3];
 
         if (CompareTag("Player"))
         {
             if (MainManager.Instance)
             {
-                goodDecisions[0] = MainManager.Instance.toyChoice;
-                goodDecisions[1] = MainManager.Instance.knifeChoice;
-                goodDecisions[2] = MainManager.Instance.locketChoice;
+                evilDecision[0] = MainManager.Instance.toyChoice;
+                evilDecision[1] = MainManager.Instance.knifeChoice;
+                evilDecision[2] = MainManager.Instance.locketChoice;
             }
         }
     }
@@ -122,6 +122,7 @@ public class Character : MonoBehaviour
         battleManager.typewriter.Write("You swing at the Demon.");
         DamageEnemy(target, _atk.value);
         attackManager.PlayLightAtt();
+        AkSoundEngine.PostEvent("Play_AttackNormal", gameObject);
 
         StartCoroutine(WaitForTransition(2, 2f));
     }
@@ -136,24 +137,27 @@ public class Character : MonoBehaviour
 
     public void DollAttack()
     {
-        if (goodDecisions[0]) DollAttackBad(target);
+        if (evilDecision[0]) DollAttackBad(target);
         else DollAttackGood(target);
+        AkSoundEngine.PostEvent("Play_Distract_Doll", gameObject);
 
         StartCoroutine(WaitForTransition(2, 2f));
     }
 
     public void KnifeAttack()
     {
-        if (goodDecisions[1]) KnifeAttackBad();
+        if (evilDecision[1]) KnifeAttackBad();
         else KnifeAttackGood(target);
+        AkSoundEngine.PostEvent("Play_AttackStrong_Knife", gameObject);
 
         StartCoroutine(WaitForTransition(2, 2f));
     }
 
     public void LocketAttack()
     {
-        if (goodDecisions[2]) LocketAttackBad();
+        if (evilDecision[2]) LocketAttackBad();
         else LocketAttackGood();
+        AkSoundEngine.PostEvent("Play_Heal_Locket", gameObject);
 
         StartCoroutine(WaitForTransition(2, 2f));
     }
