@@ -185,11 +185,10 @@ public class Character : MonoBehaviour
     private void DollAttackGood(Character target)
     {
         battleManager.typewriter.Write("You brace yourself against the Demon.");
+        attackManager.PlayPlayerBrace();
         target.isTakingRecoil = true;
         dollUsedTurn = BattleManagerScript.turnCount;
         OnNewTurn += MakeEnemyRecoil;
-        
-        attackManager.PlayPlayerIllusion();
     }
 
     private void MakeEnemyRecoil(int turnNumber)
@@ -230,12 +229,11 @@ public class Character : MonoBehaviour
     private void DollAttackBad(Character target)
     {
         battleManager.typewriter.Write("You distract the Demon with your illusion.");
+        attackManager.PlayPlayerBrace();
         ChangeHP(-5);
         dollUsedTurn = BattleManagerScript.turnCount;
         OnNewTurn += SkipEnemyTurn;
         target.isTurnSkipped = true;
-        
-        attackManager.PlayPlayerIllusion();
     } 
 
     private void SkipEnemyTurn(int turnNumber)

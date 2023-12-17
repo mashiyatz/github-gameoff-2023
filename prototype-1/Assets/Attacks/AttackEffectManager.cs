@@ -51,7 +51,7 @@ public class AttackEffectManager : MonoBehaviour
         print("strong played");
     }
     
-    public void PlayPlayerIllusion()
+    public void PlayPlayerBrace()
     {
         if (postProcessingVolume == null)
         {
@@ -60,8 +60,8 @@ public class AttackEffectManager : MonoBehaviour
         }
 
         // Start the volume animation
-        //StartCoroutine(AnimateGlobalPostProcessingVolume3());
-        //print("strong played");
+        StartCoroutine(AnimateGlobalPostProcessingVolume3());
+        print("brace played");
     }
     
     public void PlayHealing()
