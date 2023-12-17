@@ -318,7 +318,7 @@ MonoBehaviour:
       - It's the last thing I own from my parents.
     - stringList:
       - Thank you! You're really nice!
-      - ...What? Where did my doll go?
+      - ...Where did my doll go?
   dialogueBox: {fileID: 732982386}
   gameManager: {fileID: 1978225503}
   hasAlreadyInteracted: 0
@@ -6255,7 +6255,7 @@ MonoBehaviour:
       - That knife was my father's pride and joy.
     - stringList:
       - I will make you my finest work yet!
-      - What in the...where did it go?
+      - What in the...what did you do?
   dialogueBox: {fileID: 732982386}
   gameManager: {fileID: 1978225503}
   hasAlreadyInteracted: 0
@@ -21399,8 +21399,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A sigh rumbles within you, and the object in your pocket begins to feel
-    warm between your fingers. You crave it.
+  m_text: As you bring the object closer to its owner, your chest begins to radiate
+    with heat. You feel a deep Hunger reaching out for the object. Do you give in
+    to the Hunger or Return the item to its rightful place?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_sharedMaterial: {fileID: 6390954191022912697, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
@@ -21466,7 +21467,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1818166250
