@@ -102,6 +102,7 @@ public class Character : MonoBehaviour
         battleManager.typewriter.Write("The Demon strikes.");
         GetComponent<SetDemonBody>().SetBodySprite(1);
         DamageEnemy(target, Random.Range(5, 8));
+        attackManager.PlayDemonWeak();
     }
 
     public void DemonStrongAttack(Character target)
@@ -109,6 +110,10 @@ public class Character : MonoBehaviour
         battleManager.typewriter.Write("The Demon tears through.");
         GetComponent<SetDemonBody>().SetBodySprite(2);
         DamageEnemy(target, Random.Range(10, 14));
+        
+        //attackManager.PlayDemonStrong();
+        print("strong asked");
+        attackManager.PlayDemonStrong();
     }
 
     // player
@@ -162,7 +167,7 @@ public class Character : MonoBehaviour
         knifeUsedTurn = BattleManagerScript.turnCount;
         OnNewTurn += Recharge;
         isTurnSkipped = true;
-        attackManager.PlayHeavyAtt();
+        attackManager.PlayPlayerCharge();
     }
 
     private void Recharge(int turnNumber)
@@ -180,6 +185,7 @@ public class Character : MonoBehaviour
     private void DollAttackGood(Character target)
     {
         battleManager.typewriter.Write("You brace yourself against the Demon.");
+        attackManager.PlayPlayerBrace();
         target.isTakingRecoil = true;
         dollUsedTurn = BattleManagerScript.turnCount;
         OnNewTurn += MakeEnemyRecoil;
@@ -223,6 +229,7 @@ public class Character : MonoBehaviour
     private void DollAttackBad(Character target)
     {
         battleManager.typewriter.Write("You distract the Demon with your illusion.");
+        attackManager.PlayPlayerBrace();
         ChangeHP(-5);
         dollUsedTurn = BattleManagerScript.turnCount;
         OnNewTurn += SkipEnemyTurn;
