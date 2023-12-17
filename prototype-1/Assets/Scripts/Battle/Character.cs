@@ -102,6 +102,7 @@ public class Character : MonoBehaviour
         battleManager.typewriter.Write("The Demon strikes.");
         GetComponent<SetDemonBody>().SetBodySprite(1);
         DamageEnemy(target, Random.Range(5, 8));
+        attackManager.PlayDemonWeak();
     }
 
     public void DemonStrongAttack(Character target)
@@ -109,6 +110,10 @@ public class Character : MonoBehaviour
         battleManager.typewriter.Write("The Demon tears through.");
         GetComponent<SetDemonBody>().SetBodySprite(2);
         DamageEnemy(target, Random.Range(10, 14));
+        
+        //attackManager.PlayDemonStrong();
+        print("strong asked");
+        attackManager.PlayDemonStrong();
     }
 
     // player
