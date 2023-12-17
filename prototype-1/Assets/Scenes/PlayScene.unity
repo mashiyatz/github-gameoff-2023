@@ -11013,9 +11013,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You feel something stir inside of you. The hunger grows unbearable, as
-    if it is bursting out. You begin to feel lightheaded and ready yourself for what's
-    to come.
+  m_text: You begin to feel the weight of your actions. The Hunger inside of you
+    grows relentless thirsting for more. You feel it trying to take control.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_sharedMaterial: {fileID: 6390954191022912697, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
@@ -15450,7 +15449,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -19592,7 +19591,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4808539453979282110, guid: d213c87f25933e34d8f8340512610a91, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4808539453979282110, guid: d213c87f25933e34d8f8340512610a91, type: 3}
       propertyPath: m_LocalScale.x
@@ -21479,7 +21478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1818166248
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21520,9 +21519,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: As you bring the object closer to its owner, your chest begins to radiate
-    with heat. You feel a deep Hunger reaching out for the object. Do you give in
-    to the Hunger or Return the item to its rightful place?
+  m_text: As you bring the object closer to its owner, you feel a deep Hunger reaching
+    out for the object. Do you give in to the Hunger or Return the item to its rightful
+    place?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_sharedMaterial: {fileID: 6390954191022912697, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
