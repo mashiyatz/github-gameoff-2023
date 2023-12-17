@@ -188,6 +188,8 @@ public class Character : MonoBehaviour
         target.isTakingRecoil = true;
         dollUsedTurn = BattleManagerScript.turnCount;
         OnNewTurn += MakeEnemyRecoil;
+        
+        attackManager.PlayPlayerIllusion();
     }
 
     private void MakeEnemyRecoil(int turnNumber)
@@ -232,6 +234,8 @@ public class Character : MonoBehaviour
         dollUsedTurn = BattleManagerScript.turnCount;
         OnNewTurn += SkipEnemyTurn;
         target.isTurnSkipped = true;
+        
+        attackManager.PlayPlayerIllusion();
     } 
 
     private void SkipEnemyTurn(int turnNumber)
