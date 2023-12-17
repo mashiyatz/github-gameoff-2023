@@ -20,6 +20,9 @@ public class AttackEffectManager : MonoBehaviour
     public Volume postProcessingVolume3;
     public AnimationCurve volumeCurve3;
     
+    public Volume postProcessingVolume4;
+    public AnimationCurve volumeCurve4;
+    
     public float animationDuration = 2.5f;
 
     public GameObject particleSystemPrefab;
@@ -61,6 +64,19 @@ public class AttackEffectManager : MonoBehaviour
 
         // Start the volume animation
         StartCoroutine(AnimateGlobalPostProcessingVolume3());
+        print("charge played");
+    }
+    
+    public void PlayPlayerCharge()
+    {
+        if (postProcessingVolume == null)
+        {
+            Debug.LogError("Post-processing Volume not assigned!");
+            return;
+        }
+
+        // Start the volume animation
+        StartCoroutine(AnimateGlobalPostProcessingVolume4());
         print("brace played");
     }
     
@@ -177,5 +193,26 @@ public class AttackEffectManager : MonoBehaviour
 
         // Ensure the volume weight is set to 0 at the end
         postProcessingVolume3.weight = 0f;
+    }
+    
+    private System.Collections.IEnumerator AnimateGlobalPostProcessingVolume4()
+    {
+        float timer = 0f;
+        float startWeight = postProcessingVolume4.weight;
+
+        while (timer < animationDuration)
+        {
+            float normalizedTime = timer / animationDuration;
+            float curveValue = volumeCurve4.Evaluate(normalizedTime);
+
+            // Set the global volume weight
+            postProcessingVolume4.weight = Mathf.Lerp(startWeight, curveValue, normalizedTime);
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the volume weight is set to 0 at the end
+        postProcessingVolume4.weight = 0f;
     }
 }

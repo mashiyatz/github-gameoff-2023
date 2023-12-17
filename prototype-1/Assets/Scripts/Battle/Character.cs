@@ -167,7 +167,7 @@ public class Character : MonoBehaviour
         knifeUsedTurn = BattleManagerScript.turnCount;
         OnNewTurn += Recharge;
         isTurnSkipped = true;
-        attackManager.PlayHeavyAtt();
+        attackManager.PlayPlayerCharge();
     }
 
     private void Recharge(int turnNumber)
