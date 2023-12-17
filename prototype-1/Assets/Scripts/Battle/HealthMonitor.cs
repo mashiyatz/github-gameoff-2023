@@ -17,8 +17,8 @@ public class HealthMonitor : MonoBehaviour
     
     // Start is called before the first frame update
     
-    private float scaleMin = 1.55f;
-    private float scaleMax = 1.85f;
+    private float scaleMin = 1.00f;
+    private float scaleMax = 1.35f;
     void Start()
     {
         if (thoustEvil.isEvil)
