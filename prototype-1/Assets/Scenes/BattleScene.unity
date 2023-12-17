@@ -3559,9 +3559,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3937ffaf6ec79a74994926d7ef2b6fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ruEvil: {fileID: 0}
-  evilDesc: vil
-  notEvilDesc: ief
+  ruEvil: {fileID: 1936309694}
+  evilDesc: Heal 10HP per turn for 3 turns
+  notEvilDesc: Heal 30HP at once
 --- !u!222 &3603695552821497981
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3753,9 +3753,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b61f7240fdfd5040b8ba05f62816251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ruEvil: {fileID: 0}
-  evilDesc: Evil
-  notEvilDesc: Notevil
+  ruEvil: {fileID: 1936309694}
+  evilDesc: Boost dmg per turn for 3 turns
+  notEvilDesc: Single strong attack that skips your next turn
 --- !u!224 &3603695552952855133
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4255,9 +4255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6d9e871977a2845b7b3b88e5e112a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ruEvil: {fileID: 0}
-  evilDesc: evil
-  notEvilDesc: not evil
+  ruEvil: {fileID: 1936309694}
+  evilDesc: Skip enemy's turn in exchange for 5HP
+  notEvilDesc: Cause enemy to take damage when they attackk you
 --- !u!222 &3603695553990249929
 CanvasRenderer:
   m_ObjectHideFlags: 0
