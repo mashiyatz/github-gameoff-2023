@@ -4257,7 +4257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ruEvil: {fileID: 1936309694}
   evilDesc: Skip enemy's turn in exchange for 5HP
-  notEvilDesc: Cause enemy to take damage when they attackk you
+  notEvilDesc: Cause enemy to take damage when they attack you
 --- !u!222 &3603695553990249929
 CanvasRenderer:
   m_ObjectHideFlags: 0
