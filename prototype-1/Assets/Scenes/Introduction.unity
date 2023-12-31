@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 756703189}
   - component: {fileID: 756703190}
   m_Layer: 5
-  m_Name: Dialouge
+  m_Name: Dialogue1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ah a new host... My spirit hungers\u2026 I must consume"
+  m_text: Ah, a new host...you must feel the same hunger that I do.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_sharedMaterial: {fileID: 6390954191022912697, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
@@ -494,8 +494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e43581bc8ff2044bdc0cc3a4265943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 5
-  timeBtwChars: 0.1
+  delayBeforeStart: 7
+  timeBtwChars: 0.08
   leadingChar: 
   leadingCharBeforeDelay: 0
   isNextText: 0
@@ -661,12 +661,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a633c56857be24c8c42e8a93860a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTime: 25
+  changeTime: 37
   sceneName: PlayScene
-  mainMenuMusic:
+  openingVoice:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: f49c5c00998aeb143be2f22e8e073119, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 4cb5c6bbdb7071b4d80e4f2a3cd06e35, type: 2}
 --- !u!4 &995801686
 Transform:
   m_ObjectHideFlags: 0
@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: 1359231132}
   - component: {fileID: 1359231135}
   m_Layer: 5
-  m_Name: Dialouge (2)
+  m_Name: Dialogue2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -734,8 +734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e43581bc8ff2044bdc0cc3a4265943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 11
-  timeBtwChars: 0.1
+  delayBeforeStart: 16
+  timeBtwChars: 0.08
   leadingChar: 
   leadingCharBeforeDelay: 0
   isNextText: 0
@@ -761,7 +761,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Find me trinkets that people hold dear and I will feed on their essence
+  m_text: 'Tell me...what is it that you crave? Wealth? Power? Love? '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_sharedMaterial: {fileID: 6390954191022912697, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 1412741326}
   - component: {fileID: 1412741325}
   m_Layer: 5
-  m_Name: Dialouge (3)
+  m_Name: Dialogue3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -910,8 +910,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e43581bc8ff2044bdc0cc3a4265943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 20
-  timeBtwChars: 0.1
+  delayBeforeStart: 23
+  timeBtwChars: 0.08
   leadingChar: 
   leadingCharBeforeDelay: 0
   isNextText: 0
@@ -937,7 +937,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Feed me and I will grant you power\u2026"
+  m_text: 'Feed me the essence of longing, bring me that which is coveted, and I
+    will grant you your every wish... '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_sharedMaterial: {fileID: 6390954191022912697, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}

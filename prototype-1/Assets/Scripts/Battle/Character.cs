@@ -52,7 +52,7 @@ public class Character : MonoBehaviour
     public void UpdateOnNewTurn()
     {
         OnNewTurn?.Invoke(BattleManagerScript.turnCount);
-        StartCoroutine(WaitForTransition(1, 3f));
+        StartCoroutine(WaitForTransition(1, 2f));
     }
 
     // general
@@ -77,10 +77,7 @@ public class Character : MonoBehaviour
 
         if (_hp.value <= 0)
         {
-            if (CompareTag("Player")) battleManager.typewriter.Write("You have perished.");
-            else if (CompareTag("Boss")) battleManager.typewriter.Write("The Demon is no more.");
             currentStatus = STATUS.DEAD;
-            battleManager.checkEnding.TriggerEnding();
         }
         else if (_hp.value < HP / 3)
         {

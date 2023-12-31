@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BattleManagerScript : MonoBehaviour
 {
-    public enum PHASE { PLAYERSTART, PLAYERACT, ENEMY }
+    public enum PHASE { PLAYERSTART, PLAYERACT, ENEMY, END }
     public PHASE currentPhase;
 
     public GameObject battleUI;
@@ -42,13 +42,34 @@ public class BattleManagerScript : MonoBehaviour
     // on click add start turn var, if turn +3, remove
     // make item disappear on giving it away
 
+    IEnumerator ToEnd()
+    {
+        while (!typewriter.isFinishedWriting) {
+            yield return null;
+        }
+        yield return new WaitForSeconds(1.5f);
+        checkEnding.TriggerEnding();
+    }
+
     public void ChangeState(int index) {
+
+        if ((player.currentStatus == Character.STATUS.DEAD) || (demon.currentStatus == Character.STATUS.DEAD))
+        {
+            if (player.currentStatus == Character.STATUS.DEAD) typewriter.Write("You have perished.");
+            else if (demon.currentStatus == Character.STATUS.DEAD) typewriter.Write("The Demon is no more.");
+            StartCoroutine(ToEnd());
+            return;
+        }
+
         PHASE toPhase = (PHASE)index;
         switch (toPhase)
         {
             case PHASE.PLAYERSTART:
                 if (player.currentStatus == Character.STATUS.BLEEDING) typewriter.Write("Your wounds are severe.");
-                else typewriter.Write("The Demon slumbers before you.");
+                // else typewriter.Write("The Demon slumbers before you.");
+                else typewriter.Write("");
+                demon.GetComponent<Animator>().Play("Demon_Blink");
+                    // blink animation instead?
                 turnCount += 1;
                 player.UpdateOnNewTurn();
                 currentPhase = PHASE.PLAYERSTART;
@@ -67,17 +88,20 @@ public class BattleManagerScript : MonoBehaviour
             case PHASE.ENEMY:
                 if (demon.currentStatus == Character.STATUS.BLEEDING) typewriter.Write("The Demon writhes in pain.");
                 else typewriter.Write("The Demon watches you.");
+
                 fightButton.SetActive(false);
                 inventory.SetActive(false);
                 currentPhase = PHASE.ENEMY;
                 StartCoroutine(RunEnemyPhase());
                 break;
         }
-        if (demon.currentStatus != Character.STATUS.BLEEDING) demonEye.SetEyeSprite(currentPhase); 
+        // if (demon.currentStatus != Character.STATUS.BLEEDING) demonEye.SetEyeSprite(currentPhase); 
     }
 
     IEnumerator RunEnemyPhase()
     {
+        // demonEye.SetEyeSprite(PHASE.ENEMY);
+        demon.GetComponent<Animator>().Play("Demon_Watch");
         yield return new WaitForSeconds(3.2f);
 
         if (demon.isTurnSkipped) typewriter.Write("The Demon strikes at air.");
@@ -89,6 +113,7 @@ public class BattleManagerScript : MonoBehaviour
 
         yield return new WaitForSeconds(3.2f);
         demonBody.SetBodySprite(0);
+        // demonEye.SetEyeSprite(PHASE.PLAYERSTART);
         ChangeState((int)PHASE.PLAYERSTART);
     }
 

@@ -9,18 +9,20 @@ public class ChangeSceneOnTimer : MonoBehaviour
     public float changeTime;
     public string sceneName;
 
+    [SerializeField]
+    AK.Wwise.Event openingVoice;
+
     void Start()
     {
         AkSoundEngine.PostEvent("Play_Opening_Demon_Voice", gameObject);        
     }
 
-    // Update is called once per frame
     void Update()
     {
         changeTime -= Time.deltaTime;
         if(changeTime <= 0)
         {
-            AkSoundEngine.StopAll();
+            AkSoundEngine.StopPlayingID((uint)PlayerPrefs.GetInt("mainMenuMusicID"), 2000);
             SceneManager.LoadScene(sceneName);
         }
         

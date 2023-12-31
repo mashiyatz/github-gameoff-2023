@@ -11104,10 +11104,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeStart: 0
-  timeBtwChars: 0.1
+  timeBtwChars: 0.05
   leadingChar: 
   leadingCharBeforeDelay: 0
-  isNextText: 0
+  isNextText: 1
   doReset: 0
   nextTextbox: []
   isFinishedWriting: 1
@@ -15788,7 +15788,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Will you return it?
+  m_text: Will you return the item to its rightful owner?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_sharedMaterial: {fileID: 8324283224796415102, guid: 12e9155919162f14fb33ffb5b129b404, type: 2}
@@ -21519,9 +21519,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: As you bring the object closer to its owner, you feel a deep Hunger reaching
-    out for the object. Do you give in to the Hunger or Return the item to its rightful
-    place?
+  m_text: As you reach for the object, you feel a deep Hunger welling up inside you.
+    You crave it.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
   m_sharedMaterial: {fileID: 6390954191022912697, guid: 41ed38366bc6e4a4999e2fd22d776e0a, type: 2}
